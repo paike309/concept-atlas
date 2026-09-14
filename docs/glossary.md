@@ -1,6 +1,14 @@
 # 中英术语对照 · Glossary
 
-本库范围内出现的术语，按领域列出。**「卡片」栏给出链接的表示已有专门卡片**；空白表示该术语尚未单独成卡（可能已并入其他卡片的内容，例如「思维链」在提示工程卡里、「困惑度」在缩放定律卡里）。
+本库范围内出现的术语，按领域列出。
+
+「卡片」栏有三种状态：
+
+- `[已写](路径)`——该术语**有专门卡片**
+- `[见 X](路径)`——该术语**没有专门卡片**，但内容在指向的那张卡里覆盖了（例如「思维链」在提示工程卡里、「困惑度」在缩放定律卡里）
+- 空白——尚未覆盖
+
+这个区分是有用的：查一个术语时，`已写` 说明你能读到完整的一张卡，`见 X` 说明你只能读到卡里的某几段。
 
 用途有两个：读英文材料时反查中文；写卡片时统一译名——同一个词在不同卡里必须写成同一个中文，否则检索会漏。
 
@@ -47,6 +55,7 @@
 | 检索增强生成 | Retrieval-Augmented Generation | RAG | [已写](../concepts/ai/rag.md) |
 | 向量检索 | Vector Search | | [已写](../concepts/ai/vector-search.md) |
 | 重排序 | Reranking | | [已写](../concepts/ai/reranking.md) |
+| 模型选型 | Model Selection | | [已写](../concepts/ai/model-selection.md) |
 | 提示工程 | Prompt Engineering | | [已写](../concepts/ai/prompt-engineering.md) |
 | 思维链 | Chain-of-Thought | CoT | [见提示工程](../concepts/ai/prompt-engineering.md) |
 | 幻觉 | Hallucination | | [已写](../concepts/ai/hallucination.md) |
@@ -54,6 +63,7 @@
 | 越狱 | Jailbreak | | [已写](../concepts/ai/jailbreak.md) |
 | 提示注入 | Prompt Injection | | [见 Agent 侧](../concepts/agent/prompt-injection-defense.md) |
 | 护栏 | Guardrail | | |
+| 评估方法论 | Evaluation Methodology | | [已写](../concepts/ai/evaluation.md) |
 | 基准 | Benchmark | | [已写](../concepts/ai/benchmarks.md) |
 | 困惑度 | Perplexity | PPL | [见缩放定律](../concepts/ai/scaling-laws.md) |
 | 基准污染 | Benchmark Contamination | | [已写](../concepts/ai/benchmarks.md) |
@@ -66,16 +76,19 @@
 |---|---|---|---|
 | 智能体 | Agent | | [见 Agent 循环](../concepts/agent/agent-loop.md) |
 | Agent 循环 | Agent Loop | | [已写](../concepts/agent/agent-loop.md) |
+| ReAct | ReAct | | [已写](../concepts/agent/react-and-planning.md) |
 | 工具定义 | Tool Definition | | [已写](../concepts/agent/tool-definition.md) |
 | 工具调用 | Tool Use | | [已写](../concepts/agent/tool-definition.md) |
 | 函数调用 | Function Calling | | [已写](../concepts/agent/function-calling.md) |
 | 模型上下文协议 | Model Context Protocol | MCP | [已写](../concepts/agent/mcp.md) |
 | 沙箱 | Sandbox | | [已写](../concepts/agent/code-execution-sandbox.md) |
 | 长期记忆 | Long-term Memory | | [已写](../concepts/agent/long-term-memory.md) |
+| 上下文预算管理 | Context Budget Management | | [已写](../concepts/agent/context-budget.md) |
 | 上下文压缩 | Context Compression | | [已写](../concepts/agent/context-compression.md) |
 | 结构化状态 | Structured State | | [已写](../concepts/agent/structured-state.md) |
 | 轨迹 | Trajectory | | [已写](../concepts/agent/trajectory-observability.md) |
 | 循环检测 | Loop Detection | | [见失败模式](../concepts/agent/failure-modes.md) |
+| 失败模式 | Failure Modes | | [已写](../concepts/agent/failure-modes.md) |
 | 人在回路 | Human-in-the-Loop | HITL | [已写](../concepts/agent/human-in-the-loop.md) |
 | 多智能体 | Multi-Agent | | [已写](../concepts/agent/single-vs-multi-agent.md) |
 | 最小授权 | Least Privilege | | [已写](../concepts/agent/least-privilege.md) |
@@ -83,6 +96,7 @@
 | 工作流 | Workflow | | [见 Agent 循环](../concepts/agent/agent-loop.md) |
 | 终止条件 | Termination Condition | | [已写](../concepts/agent/termination-and-budget.md) |
 | 计划-执行 | Plan-and-Execute | | [已写](../concepts/agent/plan-and-execute.md) |
+| Agent 评测 | Agent Evaluation | | [已写](../concepts/agent/agent-evaluation.md) |
 
 ---
 
@@ -108,6 +122,8 @@
 | 契约测试 | Contract Test | | [已写](../concepts/software/contract-testing.md) |
 | 属性测试 | Property-Based Testing | PBT | [已写](../concepts/software/property-based-testing.md) |
 | 可复现构建 | Reproducible Build | | [已写](../concepts/software/reproducible-build.md) |
+| 版本控制与分支策略 | Version Control & Branching | | [已写](../concepts/software/version-control-branching.md) |
+| 代码审查 | Code Review | | [已写](../concepts/software/code-review.md) |
 | 语义化版本 | Semantic Versioning | SemVer | [已写](../concepts/software/semantic-versioning.md) |
 | 变更日志 | Changelog | | [已写](../concepts/software/changelog.md) |
 | 架构决策记录 | Architecture Decision Record | ADR | [已写](../concepts/software/adr.md) |
