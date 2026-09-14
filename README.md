@@ -97,9 +97,9 @@ Mermaid 图里的节点**不加链接**（GitHub 对图内链接支持不稳定�
 
 | 领域 | 已写 | 待写 | 地图 |
 |---|---|---|---|
-| AI | 8 | 26 | [AI 地图](maps/ai.md) |
-| Agent | 6 | 13 | [Agent 地图](maps/agent.md) |
-| 软件工程 | 3 | 21 | [软件工程地图](maps/software.md) |
+| AI | 19 | 15 | [AI 地图](maps/ai.md) |
+| Agent | 11 | 8 | [Agent 地图](maps/agent.md) |
+| 软件工程 | 13 | 11 | [软件工程地图](maps/software.md) |
 
 **完整卡片索引在 [`roadmap.md`](roadmap.md)** —— 那份清单同时是任务列表和索引，`[x]` 是可点的链接，`[ ]` 表示还没写。
 
