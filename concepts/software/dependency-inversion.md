@@ -9,7 +9,7 @@
 | 前置 | [依赖注入](dependency-injection.md) |
 | 相关 | [端口与适配器](ports-and-adapters.md) · [分层架构与模块边界](layered-architecture.md) |
 | 状态 | `stable` |
-| 信源等级 | `unverified` 由 AI 生成，待逐条核查 |
+| 信源等级 | `link-checked` 来源链接已于 2026-09-14 机器核验（可达性 + 编号与标题一致），正文表述未核查 |
 | 最近核对 | 2026-09-14 |
 
 **参考来源**

@@ -9,7 +9,7 @@
 | 前置 | [工具定义](tool-definition.md) |
 | 相关 | [模型上下文协议](mcp.md) · [提示注入防御](prompt-injection-defense.md) |
 | 状态 | `stable` |
-| 信源等级 | `unverified` 由 AI 生成，待逐条核查 |
+| 信源等级 | `link-checked` 来源链接已于 2026-09-14 机器核验（可达性 + 编号与标题一致），正文表述未核查 |
 | 最近核对 | 2026-09-14 |
 
 **参考来源**

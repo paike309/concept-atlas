@@ -8,13 +8,14 @@
 | 层级 | 基础 |
 | 前置 | 无。这是基础算子，可以脱离语言单独理解 |
 | 相关 | [Transformer 架构](transformer.md) · [上下文窗口](context-window.md) |
-| 信源等级 | `human-reviewed` 正文逐句核查 |
+| 信源等级 | `link-checked` 来源链接已于 2026-09-14 机器核验（可达性 + 编号与标题一致），正文表述未核查 |
 | 最近核对 | 2026-09-14 |
 
 **参考来源**
 
 1. Attention Is All You Need — <https://arxiv.org/abs/1706.03762>（论文）
 2. The Illustrated Transformer, Jay Alammar — <https://jalammar.github.io/illustrated-transformer/>（博客）
+3. Attention is not Explanation, Jain & Wallace 2019 — <https://arxiv.org/abs/1902.10186>（论文）
 
 ---
 
@@ -77,4 +78,5 @@ $$\text{Attention}(Q,K,V) = \text{softmax}\!\left(\frac{QK^\top}{\sqrt{d_k}}\rig
 
 - **《Attention Is All You Need》**——支撑「核心机制」全部内容（缩放点积公式、多头、$O(n^2)$ 复杂度、位置编码缺失的动机）；「应用场景」中视觉与图领域的迁移属于本论文之后的延伸，未在此文覆盖。
 - **《The Illustrated Transformer》**——支撑「我的理解」中检索类比与 Q/K/V 的解释方式，以及 QK^T 的直观图示。
-- **自己的判断**——「常见误解」第 1 条的批评依据是注意力可解释性方向的后续研究（非上述两源），此处标注为需另行补源；第 2、3 条由 softmax 归一化性质直接推出。
+- **《Attention is not Explanation》**——支撑「常见误解」第 1 条（注意力权重不能当作解释）。
+- **自己的判断**——「常见误解」第 2、3 条由 softmax 归一化性质直接推出，非取自任何来源。

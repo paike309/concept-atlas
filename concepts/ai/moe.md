@@ -9,7 +9,7 @@
 | 前置 | [前馈网络](feed-forward-network.md) |
 | 相关 | [推理成本与显存估算](inference-cost.md) · [缩放定律](scaling-laws.md) |
 | 状态 | `stable` |
-| 信源等级 | `unverified` 由 AI 生成，待逐条核查 |
+| 信源等级 | `link-checked` 来源链接已于 2026-09-14 机器核验（可达性 + 编号与标题一致），正文表述未核查 |
 | 最近核对 | 2026-09-14 |
 
 **参考来源**

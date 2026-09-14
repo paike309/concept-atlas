@@ -9,12 +9,12 @@
 | 前置 | [上下文窗口](context-window.md) |
 | 相关 | [提示工程](prompt-engineering.md) · [幻觉](hallucination.md) |
 | 状态 | `stable` |
-| 信源等级 | `unverified` 由 AI 生成，待逐条核查 |
+| 信源等级 | `link-checked` 来源链接已于 2026-09-14 机器核验（可达性 + 编号与标题一致），正文表述未核查 |
 | 最近核对 | 2026-09-14 |
 
 **参考来源**
 
-1. Hugging Face — Generation strategies — <https://huggingface.co/docs/transformers/main/en/generation_strategies>（文档）
+1. Hugging Face — Generation strategies — <https://huggingface.co/docs/transformers/generation_strategies>（文档）
 
 ---
 

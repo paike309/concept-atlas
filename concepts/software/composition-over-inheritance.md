@@ -9,7 +9,7 @@
 | 前置 | [依赖倒置原则](dependency-inversion.md) |
 | 相关 | [单一职责与职责划分](single-responsibility.md) |
 | 状态 | `stable` |
-| 信源等级 | `unverified` 由 AI 生成，待逐条核查 |
+| 信源等级 | `unverified` 来源为书籍，出版社页面阻断自动核验，未能确认链接可达 |
 | 最近核对 | 2026-09-14 |
 
 **参考来源**

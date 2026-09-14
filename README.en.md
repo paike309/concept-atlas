@@ -72,16 +72,25 @@ Start at [`maps/overview.md`](maps/overview.md).
 | Level | Meaning |
 |---|---|
 | `unverified` | AI-generated or quickly excerpted, not checked item by item |
-| `machine-confirmed` | Every source link opened and confirmed reachable; prose not yet rewritten by hand |
+| `link-checked` | Links machine-verified: reachable, and pointing at the resource the card claims. Does **not** mean the source supports the prose |
+| `machine-confirmed` | Every source checked against the specific paragraph it is cited for |
 | `human-reviewed` | Prose read sentence by sentence; "My understanding" is in the author's own words |
+
+The four levels are progressive. **Skipping a level is the usual way this field degrades** — treating "the link opens" as "the claim is supported", and then "the claim is supported" as "I understand this".
 
 A card whose "last checked" date is over a year old is treated as `stale`.
 
 This field is not ceremony. Months later it is the only reliable way to distinguish "I understand this" from "I once saved this".
 
-**Current status: all 77 cards are `unverified`.** The structure and cross-references are complete, but source links have not been opened one by one and the prose has not been rewritten in the author's own words.
+**Current status: 76 of 77 cards are `link-checked`, one is `unverified`.**
 
-So the correct way to use this repository right now is as an **index and a question list** — to see which concepts exist and how they depend on each other — not as a source of facts. The upgrade path is described in [`roadmap.md`](roadmap.md) (in Chinese).
+A first machine pass has been done: all 35 arXiv identifiers were matched against their actual paper titles (zero mismatches) and all other source links were checked for reachability. That pass found and fixed 10 problems — including one case of **mislabeling**, where the first five cards claimed `human-reviewed` without that review ever having happened.
+
+What `link-checked` does **not** mean: the prose has not been compared sentence by sentence against the sources, and no order-of-magnitude figures have been measured. So the guarantees are "the right paper is cited", not "the paper supports this sentence".
+
+Full record, including what was *not* done, is in [`docs/verification-log.md`](docs/verification-log.md).
+
+The correct way to use this repository right now is therefore still as an **index and a question list** — to see which concepts exist and how they depend on each other — not as a source of facts.
 
 ---
 

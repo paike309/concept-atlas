@@ -9,7 +9,7 @@
 | 前置 | [测试金字塔](test-pyramid.md) |
 | 相关 | [单元测试与可测性](unit-testing.md) · [语义化版本](semantic-versioning.md) |
 | 状态 | `stable` |
-| 信源等级 | `unverified` 由 AI 生成，待逐条核查 |
+| 信源等级 | `link-checked` 来源链接已于 2026-09-14 机器核验（可达性 + 编号与标题一致），正文表述未核查 |
 | 最近核对 | 2026-09-14 |
 
 **参考来源**
