@@ -12,11 +12,11 @@
 
 ---
 
-## AI（待写 31）
+## AI（待写 26）
 
 ### L0 输入层
 
-- [ ] **P0** 分词 Tokenization — 所有序列模型的入口；已被 [注意力机制](concepts/ai/attention-mechanism.md) 引用却未写
+- [x] [分词 Tokenization](concepts/ai/tokenization.md)
 - [ ] P1 词嵌入 Embedding
 - [ ] P2 位置编码 Positional Encoding
 
@@ -31,7 +31,7 @@
 
 ### L2 训练层
 
-- [ ] **P0** 训练范式总览 — 预训练 / SFT / 对齐三者的关系与各自改变什么。这一层现在是整块空白
+- [x] [训练范式总览](concepts/ai/training-paradigms.md)
 - [ ] P1 预训练与自监督目标
 - [ ] P1 监督微调 SFT
 - [ ] P1 指令微调与对话格式
@@ -44,7 +44,7 @@
 ### L3 推理层
 
 - [x] [上下文窗口](concepts/ai/context-window.md)
-- [ ] **P0** 推理成本与显存估算 — 判断方案可行性的第一步；很多决定算一笔账就能排除
+- [x] [推理成本与显存估算](concepts/ai/inference-cost.md)
 - [ ] P1 KV Cache
 - [ ] P1 采样策略（温度 / Top-p）
 - [ ] P2 量化 Quantization
@@ -52,8 +52,8 @@
 
 ### L4 工程层
 
-- [ ] **P0** 提示工程 Prompt Engineering — 与模型交互的最基本手段
-- [ ] **P0** RAG 检索增强生成 — 上下文窗口限制的直接下游方案
+- [x] [提示工程 Prompt Engineering](concepts/ai/prompt-engineering.md)
+- [x] [RAG 检索增强生成](concepts/ai/rag.md)
 - [ ] P1 向量检索
 - [ ] P2 重排序 Reranking
 - [ ] P2 模型选型与成本权衡
@@ -68,34 +68,34 @@
 
 ---
 
-## Agent（待写 18）
+## Agent（待写 13）
 
 ### 控制流
 
 - [x] [Agent 循环](concepts/agent/agent-loop.md)
-- [ ] **P0** 终止条件与预算控制 — 上线前提。步数上限、单步超时、成本上限必须外部强制
+- [x] [终止条件与预算控制](concepts/agent/termination-and-budget.md)
 - [ ] P1 ReAct 与规划范式
 - [ ] P2 Plan-and-Execute
 - [ ] P2 单 Agent vs 多 Agent 的取舍
 
 ### 工具
 
-- [ ] **P0** 工具定义与 JSON Schema — 工具用不对，一半原因在名字与描述
-- [ ] **P0** MCP 模型上下文协议
+- [x] [工具定义与 JSON Schema](concepts/agent/tool-definition.md)
+- [x] [MCP 模型上下文协议](concepts/agent/mcp.md)
 - [ ] P1 函数调用 Function Calling
 - [ ] P2 代码执行沙箱
 - [ ] P2 权限与最小授权
 
 ### 状态与记忆
 
-- [ ] **P0** 上下文预算管理 — 长任务跑崩的主因
+- [x] [上下文预算管理](concepts/agent/context-budget.md)
 - [ ] P1 上下文压缩与摘要
 - [ ] P2 长期记忆
 - [ ] P2 结构化状态与外部存储
 
 ### 质量与安全
 
-- [ ] **P0** 轨迹可观测性与回放 — 没有轨迹就没有可复现的调试起点
+- [x] [轨迹可观测性与回放](concepts/agent/trajectory-observability.md)
 - [ ] P1 失败模式分类（绕圈 / 目标漂移 / 工具误用）
 - [ ] P1 提示注入防御
 - [ ] P2 人在回路确认点 HITL
@@ -103,7 +103,7 @@
 
 ---
 
-## 软件工程（待写 23）
+## 软件工程（待写 21）
 
 ### 设计原则
 
@@ -122,7 +122,7 @@
 
 ### 正确性
 
-- [ ] **P0** 测试金字塔 — 决定测试写在哪一层、各层比例
+- [x] [测试金字塔](concepts/software/test-pyramid.md)
 - [ ] P1 单元测试与可测性
 - [ ] P1 契约测试
 - [ ] P2 属性测试
@@ -130,7 +130,7 @@
 
 ### 变更管理
 
-- [ ] **P0** 版本控制与分支策略
+- [x] [版本控制与分支策略](concepts/software/version-control-branching.md)
 - [ ] P1 代码审查
 - [ ] P1 语义化版本
 - [ ] P2 变更日志 CHANGELOG

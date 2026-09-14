@@ -95,15 +95,15 @@ Mermaid 图里的节点**不加链接**（GitHub 对图内链接支持不稳定�
 
 ### 卡片
 
-| 概念 | 英文 | 领域 | 层级 | 状态 |
-|---|---|---|---|---|
-| [注意力机制](concepts/ai/attention-mechanism.md) | Attention Mechanism | AI / 架构 | 基础 | `stable` |
-| [Transformer 架构](concepts/ai/transformer.md) | Transformer | AI / 架构 | 基础 | `stable` |
-| [上下文窗口](concepts/ai/context-window.md) | Context Window | AI / 推理 | 基础 | `stable` |
-| [Agent 循环](concepts/agent/agent-loop.md) | Agent Loop | Agent / 控制流 | 基础 | `stable` |
-| [依赖注入](concepts/software/dependency-injection.md) | Dependency Injection | 软件 / 设计 | 基础 | `stable` |
+| 领域 | 已写 | 待写 | 地图 |
+|---|---|---|---|
+| AI | 8 | 26 | [AI 地图](maps/ai.md) |
+| Agent | 6 | 13 | [Agent 地图](maps/agent.md) |
+| 软件工程 | 3 | 21 | [软件工程地图](maps/software.md) |
 
-其余待写项见 [`roadmap.md`](roadmap.md)。清单里 `[ ]` 未勾的，就是这个库承认自己还缺的。
+**完整卡片索引在 [`roadmap.md`](roadmap.md)** —— 那份清单同时是任务列表和索引，`[x]` 是可点的链接，`[ ]` 表示还没写。
+
+索引不在这里列第二份：同一个信息存两处，改一处必然漏另一处。这一点和双语策略是同一个理由。
 
 ---
 
