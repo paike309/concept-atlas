@@ -79,6 +79,10 @@ A card whose "last checked" date is over a year old is treated as `stale`.
 
 This field is not ceremony. Months later it is the only reliable way to distinguish "I understand this" from "I once saved this".
 
+**Current status: all 77 cards are `unverified`.** The structure and cross-references are complete, but source links have not been opened one by one and the prose has not been rewritten in the author's own words.
+
+So the correct way to use this repository right now is as an **index and a question list** — to see which concepts exist and how they depend on each other — not as a source of facts. The upgrade path is described in [`roadmap.md`](roadmap.md) (in Chinese).
+
 ---
 
 ## Provenance of the structure itself
