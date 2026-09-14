@@ -8,6 +8,7 @@
 | 层级 | 基础 |
 | 前置 | [注意力机制](attention-mechanism.md) |
 | 相关 | [上下文窗口](context-window.md) · [注意力机制](attention-mechanism.md) |
+| 状态 | `stable` |
 | 信源等级 | `link-checked` 来源链接已于 2026-09-14 机器核验（可达性 + 编号与标题一致），正文表述未核查 |
 | 最近核对 | 2026-09-14 |
 

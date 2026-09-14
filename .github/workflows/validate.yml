@@ -1,0 +1,22 @@
+name: validate
+
+# 唯一目的：让 main 的「必须走 PR」这道门有实际内容可判。
+# 不加这一步，分支保护只是个减速带。
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: 结构校验
+        run: python scripts/validate.py
