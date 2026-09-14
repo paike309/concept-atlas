@@ -12,22 +12,22 @@
 
 ---
 
-## AI（待写 15）
+## AI（待写 0）
 
 ### L0 输入层
 
 - [x] [分词 Tokenization](concepts/ai/tokenization.md)
 - [x] [词嵌入 Embedding](concepts/ai/embedding.md)
-- [ ] P2 位置编码 Positional Encoding
+- [x] [位置编码 Positional Encoding](concepts/ai/positional-encoding.md)
 
 ### L1 架构层
 
 - [x] [注意力机制](concepts/ai/attention-mechanism.md)
 - [x] [Transformer 架构](concepts/ai/transformer.md)
 - [x] [前馈网络 FFN](concepts/ai/feed-forward-network.md)
-- [ ] P2 残差连接与层归一化
-- [ ] P2 多头注意力（也可并入注意力卡）
-- [ ] P2 专家混合 MoE
+- [x] [残差连接与层归一化](concepts/ai/residual-and-normalization.md)
+- [x] [多头注意力](concepts/ai/multi-head-attention.md)
+- [x] [专家混合 MoE](concepts/ai/moe.md)
 
 ### L2 训练层
 
@@ -36,10 +36,10 @@
 - [x] [监督微调 SFT](concepts/ai/sft.md)
 - [x] [指令微调与对话格式](concepts/ai/instruction-tuning.md)
 - [x] [LoRA 与参数高效微调](concepts/ai/lora.md)
-- [ ] P2 RLHF
-- [ ] P2 DPO
-- [ ] P2 知识蒸馏
-- [ ] P2 缩放定律
+- [x] [RLHF](concepts/ai/rlhf.md)
+- [x] [DPO](concepts/ai/dpo.md)
+- [x] [知识蒸馏](concepts/ai/knowledge-distillation.md)
+- [x] [缩放定律](concepts/ai/scaling-laws.md)
 
 ### L3 推理层
 
@@ -47,102 +47,102 @@
 - [x] [推理成本与显存估算](concepts/ai/inference-cost.md)
 - [x] [KV Cache](concepts/ai/kv-cache.md)
 - [x] [采样策略（温度 / Top-p）](concepts/ai/sampling.md)
-- [ ] P2 量化 Quantization
-- [ ] P2 推理引擎与服务化
+- [x] [量化 Quantization](concepts/ai/quantization.md)
+- [x] [推理引擎与服务化](concepts/ai/inference-engines.md)
 
 ### L4 工程层
 
 - [x] [提示工程 Prompt Engineering](concepts/ai/prompt-engineering.md)
 - [x] [RAG 检索增强生成](concepts/ai/rag.md)
 - [x] [向量检索](concepts/ai/vector-search.md)
-- [ ] P2 重排序 Reranking
-- [ ] P2 模型选型与成本权衡
+- [x] [重排序 Reranking](concepts/ai/reranking.md)
+- [x] [模型选型与成本权衡](concepts/ai/model-selection.md)
 
 ### L5 评估与安全
 
 - [x] [评估方法论](concepts/ai/evaluation.md)
 - [x] [幻觉 Hallucination](concepts/ai/hallucination.md)
-- [ ] P2 对齐 Alignment
-- [ ] P2 提示注入与越狱
-- [ ] P2 基准与基准污染
+- [x] [对齐 Alignment](concepts/ai/alignment.md)
+- [x] [越狱与红队测试](concepts/ai/jailbreak.md)（提示注入见 Agent 侧的[提示注入防御](concepts/agent/prompt-injection-defense.md)）
+- [x] [基准与基准污染](concepts/ai/benchmarks.md)
 
 ---
 
-## Agent（待写 8）
+## Agent（待写 0）
 
 ### 控制流
 
 - [x] [Agent 循环](concepts/agent/agent-loop.md)
 - [x] [终止条件与预算控制](concepts/agent/termination-and-budget.md)
 - [x] [ReAct 与规划范式](concepts/agent/react-and-planning.md)
-- [ ] P2 Plan-and-Execute
-- [ ] P2 单 Agent vs 多 Agent 的取舍
+- [x] [Plan-and-Execute](concepts/agent/plan-and-execute.md)
+- [x] [单 Agent vs 多 Agent 的取舍](concepts/agent/single-vs-multi-agent.md)
 
 ### 工具
 
 - [x] [工具定义与 JSON Schema](concepts/agent/tool-definition.md)
 - [x] [MCP 模型上下文协议](concepts/agent/mcp.md)
 - [x] [函数调用 Function Calling](concepts/agent/function-calling.md)
-- [ ] P2 代码执行沙箱
-- [ ] P2 权限与最小授权
+- [x] [代码执行沙箱](concepts/agent/code-execution-sandbox.md)
+- [x] [权限与最小授权](concepts/agent/least-privilege.md)
 
 ### 状态与记忆
 
 - [x] [上下文预算管理](concepts/agent/context-budget.md)
 - [x] [上下文压缩与摘要](concepts/agent/context-compression.md)
-- [ ] P2 长期记忆
-- [ ] P2 结构化状态与外部存储
+- [x] [长期记忆](concepts/agent/long-term-memory.md)
+- [x] [结构化状态与外部存储](concepts/agent/structured-state.md)
 
 ### 质量与安全
 
 - [x] [轨迹可观测性与回放](concepts/agent/trajectory-observability.md)
 - [x] [失败模式分类](concepts/agent/failure-modes.md)
 - [x] [提示注入防御](concepts/agent/prompt-injection-defense.md)
-- [ ] P2 人在回路确认点 HITL
-- [ ] P2 Agent 评测
+- [x] [人在回路确认点 HITL](concepts/agent/human-in-the-loop.md)
+- [x] [Agent 评测](concepts/agent/agent-evaluation.md)
 
 ---
 
-## 软件工程（待写 11）
+## 软件工程（待写 0）
 
 ### 设计原则
 
 - [x] [依赖注入](concepts/software/dependency-injection.md)
 - [x] [单一职责与职责划分](concepts/software/single-responsibility.md)
 - [x] [依赖倒置原则](concepts/software/dependency-inversion.md)
-- [ ] P2 组合优于继承
-- [ ] P2 幂等性
+- [x] [组合优于继承](concepts/software/composition-over-inheritance.md)
+- [x] [幂等性](concepts/software/idempotency.md)
 
 ### 结构与边界
 
 - [x] [分层架构与模块边界](concepts/software/layered-architecture.md)
 - [x] [端口与适配器](concepts/software/ports-and-adapters.md)
-- [ ] P2 领域模型
-- [ ] P2 契约与接口设计
+- [x] [领域模型](concepts/software/domain-model.md)
+- [x] [契约与接口设计](concepts/software/contract-design.md)
 
 ### 正确性
 
 - [x] [测试金字塔](concepts/software/test-pyramid.md)
 - [x] [单元测试与可测性](concepts/software/unit-testing.md)
 - [x] [契约测试](concepts/software/contract-testing.md)
-- [ ] P2 属性测试
-- [ ] P2 可复现构建
+- [x] [属性测试](concepts/software/property-based-testing.md)
+- [x] [可复现构建](concepts/software/reproducible-build.md)
 
 ### 变更管理
 
 - [x] [版本控制与分支策略](concepts/software/version-control-branching.md)
 - [x] [代码审查](concepts/software/code-review.md)
 - [x] [语义化版本](concepts/software/semantic-versioning.md)
-- [ ] P2 变更日志 CHANGELOG
-- [ ] P2 架构决策记录 ADR
-- [ ] P2 技术债与重构
+- [x] [变更日志 CHANGELOG](concepts/software/changelog.md)
+- [x] [架构决策记录 ADR](concepts/software/adr.md)
+- [x] [技术债与重构](concepts/software/technical-debt-refactoring.md)
 
 ### 运行
 
 - [x] [可观测性（日志 / 指标 / 追踪）](concepts/software/observability.md)
 - [x] [超时、重试与退避](concepts/software/timeout-retry-backoff.md)
-- [ ] P2 熔断与降级
-- [ ] P2 背压与容量
+- [x] [熔断与降级](concepts/software/circuit-breaker.md)
+- [x] [背压与容量](concepts/software/backpressure.md)
 
 ---
 
@@ -152,9 +152,34 @@
 |---|---|---|
 | 第一批 | 12 个 P0 前置链断点 | 已完成 |
 | 第二批 | 26 个 P1 主干概念 | 已完成 |
-| 第三批 | 34 个 P2 补充与延伸 | 待写 |
+| 第三批 | 34 个 P2 补充与延伸 | 已完成 |
 
-**P0 与 P1 全部补齐后，从「分词」到「Agent 可上线」已存在一条完整可读的链路**；软件工程侧也已覆盖设计、结构与边界、正确性、变更、运行五条线。剩下的是加厚，不是开路。
+**三批全部完成，清单已清空（待写 0）。**
+
+但这不意味着库已经可用——**77 张卡片的信源等级全部是 `unverified`**，即内容由 AI 生成、尚未逐条核查。见下面的「下一步」。
+
+**P0 与 P1 全部补齐后，从「分词」到「Agent 可上线」已存在一条完整可读的链路**；软件工程侧也已覆盖设计、结构与边界、正确性、变更、运行五条线。P2 补齐了细化与延伸。
+
+---
+
+## 下一步：核查与升级
+
+清单清空只是「概念已铺齐」，**不等于内容已经可信**。当前所有卡片都是 `unverified`。
+
+升级路径（见 [`docs/schema.md`](docs/schema.md) 的信源等级定义）：
+
+| 动作 | 结果 |
+|---|---|
+| 逐条打开 `sources` 里的链接确认可访问 | → `machine-confirmed` |
+| 逐句读正文，把「我的理解」改写成自己的话 | → `human-reviewed` |
+
+建议的顺序（按风险排序，不按编号）：
+
+1. **先核查与事实相关的卡片**：幻觉、基准、缩放定律、量化、KV Cache——这些卡里数值与结论最多，出错代价最大
+2. **再核查有「待补充」标记的卡片**：这些卡自己已经承认某段缺少来源，应优先补上或删掉
+3. **最后核查方法论卡片**：它们不依赖具体数值，出错概率最低
+
+核查时如果发现某张卡的事实有误，**直接改内容并把「最近核对」更新到当天**，同时把 `verified` 调回 `unverified`（因为它已经被改动过，需要重新核查）。
 
 ---
 

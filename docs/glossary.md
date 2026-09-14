@@ -1,6 +1,6 @@
 # 中英术语对照 · Glossary
 
-本库范围内出现的术语，按领域列出。**「卡片」栏给了链接的表示已经写了卡片**，其余见 [`roadmap.md`](../roadmap.md)。
+本库范围内出现的术语，按领域列出。**「卡片」栏给出链接的表示已有专门卡片**；空白表示该术语尚未单独成卡（可能已并入其他卡片的内容，例如「思维链」在提示工程卡里、「困惑度」在缩放定律卡里）。
 
 用途有两个：读英文材料时反查中文；写卡片时统一译名——同一个词在不同卡里必须写成同一个中文，否则检索会漏。
 
@@ -15,46 +15,48 @@
 | 深度学习 | Deep Learning | DL | |
 | 神经网络 | Neural Network | NN | |
 | 大语言模型 | Large Language Model | LLM | |
-| 分词 | Tokenization | | 待写 |
+| 分词 | Tokenization | | [已写](../concepts/ai/tokenization.md) |
 | 词元 | Token | | |
-| 词嵌入 | Embedding | | |
-| 位置编码 | Positional Encoding | | |
+| 词嵌入 | Embedding | | [已写](../concepts/ai/embedding.md) |
+| 位置编码 | Positional Encoding | | [已写](../concepts/ai/positional-encoding.md) |
 | 注意力机制 | Attention Mechanism | | [已写](../concepts/ai/attention-mechanism.md) |
 | 自注意力 | Self-Attention | | [已写](../concepts/ai/attention-mechanism.md) |
-| 多头注意力 | Multi-Head Attention | MHA | [已写](../concepts/ai/attention-mechanism.md) |
-| 前馈网络 | Feed-Forward Network | FFN | [已写](../concepts/ai/transformer.md) |
-| 残差连接 | Residual Connection | | [已写](../concepts/ai/transformer.md) |
-| 层归一化 | Layer Normalization | LayerNorm | [已写](../concepts/ai/transformer.md) |
+| 多头注意力 | Multi-Head Attention | MHA | [已写](../concepts/ai/multi-head-attention.md) |
+| 前馈网络 | Feed-Forward Network | FFN | [已写](../concepts/ai/feed-forward-network.md) |
+| 残差连接 | Residual Connection | | [已写](../concepts/ai/residual-and-normalization.md) |
+| 层归一化 | Layer Normalization | LayerNorm | [已写](../concepts/ai/residual-and-normalization.md) |
 | 变换器 | Transformer | | [已写](../concepts/ai/transformer.md) |
 | 编码器 / 解码器 | Encoder / Decoder | | [已写](../concepts/ai/transformer.md) |
-| 专家混合 | Mixture of Experts | MoE | |
-| 预训练 | Pre-training | | |
-| 监督微调 | Supervised Fine-Tuning | SFT | |
-| 指令微调 | Instruction Tuning | | |
-| 基于人类反馈的强化学习 | Reinforcement Learning from Human Feedback | RLHF | |
-| 直接偏好优化 | Direct Preference Optimization | DPO | |
-| 低秩自适应 | Low-Rank Adaptation | LoRA | |
-| 参数高效微调 | Parameter-Efficient Fine-Tuning | PEFT | |
-| 知识蒸馏 | Knowledge Distillation | | |
-| 缩放定律 | Scaling Law | | |
+| 专家混合 | Mixture of Experts | MoE | [已写](../concepts/ai/moe.md) |
+| 预训练 | Pre-training | | [已写](../concepts/ai/pretraining.md) |
+| 监督微调 | Supervised Fine-Tuning | SFT | [已写](../concepts/ai/sft.md) |
+| 指令微调 | Instruction Tuning | | [已写](../concepts/ai/instruction-tuning.md) |
+| 基于人类反馈的强化学习 | Reinforcement Learning from Human Feedback | RLHF | [已写](../concepts/ai/rlhf.md) |
+| 直接偏好优化 | Direct Preference Optimization | DPO | [已写](../concepts/ai/dpo.md) |
+| 低秩自适应 | Low-Rank Adaptation | LoRA | [已写](../concepts/ai/lora.md) |
+| 参数高效微调 | Parameter-Efficient Fine-Tuning | PEFT | [已写](../concepts/ai/lora.md) |
+| 知识蒸馏 | Knowledge Distillation | | [已写](../concepts/ai/knowledge-distillation.md) |
+| 缩放定律 | Scaling Law | | [已写](../concepts/ai/scaling-laws.md) |
 | 推理 | Inference | | |
 | 上下文窗口 | Context Window | | [已写](../concepts/ai/context-window.md) |
-| 键值缓存 | KV Cache | | |
-| 温度 | Temperature | | |
-| 量化 | Quantization | | |
-| 检索增强生成 | Retrieval-Augmented Generation | RAG | |
-| 向量检索 | Vector Search | | |
-| 重排序 | Reranking | | |
-| 提示工程 | Prompt Engineering | | |
-| 思维链 | Chain-of-Thought | CoT | |
-| 幻觉 | Hallucination | | |
-| 对齐 | Alignment | | |
-| 越狱 | Jailbreak | | |
-| 提示注入 | Prompt Injection | | |
+| 键值缓存 | KV Cache | | [已写](../concepts/ai/kv-cache.md) |
+| 温度 | Temperature | | [已写](../concepts/ai/sampling.md) |
+| 核采样 | Top-p / Nucleus Sampling | | [已写](../concepts/ai/sampling.md) |
+| 量化 | Quantization | | [已写](../concepts/ai/quantization.md) |
+| 推理引擎 | Inference Engine | | [已写](../concepts/ai/inference-engines.md) |
+| 检索增强生成 | Retrieval-Augmented Generation | RAG | [已写](../concepts/ai/rag.md) |
+| 向量检索 | Vector Search | | [已写](../concepts/ai/vector-search.md) |
+| 重排序 | Reranking | | [已写](../concepts/ai/reranking.md) |
+| 提示工程 | Prompt Engineering | | [已写](../concepts/ai/prompt-engineering.md) |
+| 思维链 | Chain-of-Thought | CoT | [见提示工程](../concepts/ai/prompt-engineering.md) |
+| 幻觉 | Hallucination | | [已写](../concepts/ai/hallucination.md) |
+| 对齐 | Alignment | | [已写](../concepts/ai/alignment.md) |
+| 越狱 | Jailbreak | | [已写](../concepts/ai/jailbreak.md) |
+| 提示注入 | Prompt Injection | | [见 Agent 侧](../concepts/agent/prompt-injection-defense.md) |
 | 护栏 | Guardrail | | |
-| 基准 | Benchmark | | |
-| 困惑度 | Perplexity | PPL | |
-| 基准污染 | Benchmark Contamination | | |
+| 基准 | Benchmark | | [已写](../concepts/ai/benchmarks.md) |
+| 困惑度 | Perplexity | PPL | [见缩放定律](../concepts/ai/scaling-laws.md) |
+| 基准污染 | Benchmark Contamination | | [已写](../concepts/ai/benchmarks.md) |
 
 ---
 
@@ -62,21 +64,25 @@
 
 | 中文 | English | 缩写 | 卡片 |
 |---|---|---|---|
-| 智能体 | Agent | | |
+| 智能体 | Agent | | [见 Agent 循环](../concepts/agent/agent-loop.md) |
 | Agent 循环 | Agent Loop | | [已写](../concepts/agent/agent-loop.md) |
-| 工具调用 | Tool Use | | |
-| 函数调用 | Function Calling | | |
-| 模型上下文协议 | Model Context Protocol | MCP | |
-| 沙箱 | Sandbox | | |
-| 长期记忆 | Long-term Memory | | |
-| 上下文压缩 | Context Compression | | |
-| 轨迹 | Trajectory | | |
-| 循环检测 | Loop Detection | | |
-| 人在回路 | Human-in-the-Loop | HITL | |
-| 多智能体 | Multi-Agent | | |
+| 工具定义 | Tool Definition | | [已写](../concepts/agent/tool-definition.md) |
+| 工具调用 | Tool Use | | [已写](../concepts/agent/tool-definition.md) |
+| 函数调用 | Function Calling | | [已写](../concepts/agent/function-calling.md) |
+| 模型上下文协议 | Model Context Protocol | MCP | [已写](../concepts/agent/mcp.md) |
+| 沙箱 | Sandbox | | [已写](../concepts/agent/code-execution-sandbox.md) |
+| 长期记忆 | Long-term Memory | | [已写](../concepts/agent/long-term-memory.md) |
+| 上下文压缩 | Context Compression | | [已写](../concepts/agent/context-compression.md) |
+| 结构化状态 | Structured State | | [已写](../concepts/agent/structured-state.md) |
+| 轨迹 | Trajectory | | [已写](../concepts/agent/trajectory-observability.md) |
+| 循环检测 | Loop Detection | | [见失败模式](../concepts/agent/failure-modes.md) |
+| 人在回路 | Human-in-the-Loop | HITL | [已写](../concepts/agent/human-in-the-loop.md) |
+| 多智能体 | Multi-Agent | | [已写](../concepts/agent/single-vs-multi-agent.md) |
+| 最小授权 | Least Privilege | | [已写](../concepts/agent/least-privilege.md) |
 | 编排 | Orchestration | | |
-| 工作流 | Workflow | | [已写](../concepts/agent/agent-loop.md) |
-| 终止条件 | Termination Condition | | [已写](../concepts/agent/agent-loop.md) |
+| 工作流 | Workflow | | [见 Agent 循环](../concepts/agent/agent-loop.md) |
+| 终止条件 | Termination Condition | | [已写](../concepts/agent/termination-and-budget.md) |
+| 计划-执行 | Plan-and-Execute | | [已写](../concepts/agent/plan-and-execute.md) |
 
 ---
 
@@ -87,29 +93,31 @@
 | 依赖注入 | Dependency Injection | DI | [已写](../concepts/software/dependency-injection.md) |
 | 控制反转 | Inversion of Control | IoC | [已写](../concepts/software/dependency-injection.md) |
 | 服务定位器 | Service Locator | | [已写](../concepts/software/dependency-injection.md) |
-| 单一职责原则 | Single Responsibility Principle | SRP | |
+| 单一职责原则 | Single Responsibility Principle | SRP | [已写](../concepts/software/single-responsibility.md) |
+| 依赖倒置原则 | Dependency Inversion Principle | DIP | [已写](../concepts/software/dependency-inversion.md) |
 | 开闭原则 | Open-Closed Principle | OCP | |
-| 依赖倒置原则 | Dependency Inversion Principle | DIP | |
 | 接口隔离原则 | Interface Segregation Principle | ISP | |
-| 端口与适配器 | Ports and Adapters | | |
-| 分层架构 | Layered Architecture | | |
-| 契约 | Contract | | |
-| 幂等性 | Idempotency | | |
-| 单元测试 | Unit Test | | |
-| 契约测试 | Contract Test | | |
-| 属性测试 | Property-Based Testing | PBT | |
-| 测试金字塔 | Test Pyramid | | |
-| 可复现构建 | Reproducible Build | | |
-| 语义化版本 | Semantic Versioning | SemVer | |
-| 变更日志 | Changelog | | |
-| 架构决策记录 | Architecture Decision Record | ADR | |
-| 技术债 | Technical Debt | | |
-| 重构 | Refactoring | | |
-| 可观测性 | Observability | | |
-| 日志 / 指标 / 追踪 | Logging / Metrics / Tracing | | |
-| 退避重试 | Backoff Retry | | |
-| 熔断 | Circuit Breaker | | |
-| 背压 | Backpressure | | |
+| 组合优于继承 | Composition over Inheritance | | [已写](../concepts/software/composition-over-inheritance.md) |
+| 端口与适配器 | Ports and Adapters | | [已写](../concepts/software/ports-and-adapters.md) |
+| 分层架构 | Layered Architecture | | [已写](../concepts/software/layered-architecture.md) |
+| 领域模型 | Domain Model | | [已写](../concepts/software/domain-model.md) |
+| 契约 | Contract | | [已写](../concepts/software/contract-design.md) |
+| 幂等性 | Idempotency | | [已写](../concepts/software/idempotency.md) |
+| 测试金字塔 | Test Pyramid | | [已写](../concepts/software/test-pyramid.md) |
+| 单元测试 | Unit Test | | [已写](../concepts/software/unit-testing.md) |
+| 契约测试 | Contract Test | | [已写](../concepts/software/contract-testing.md) |
+| 属性测试 | Property-Based Testing | PBT | [已写](../concepts/software/property-based-testing.md) |
+| 可复现构建 | Reproducible Build | | [已写](../concepts/software/reproducible-build.md) |
+| 语义化版本 | Semantic Versioning | SemVer | [已写](../concepts/software/semantic-versioning.md) |
+| 变更日志 | Changelog | | [已写](../concepts/software/changelog.md) |
+| 架构决策记录 | Architecture Decision Record | ADR | [已写](../concepts/software/adr.md) |
+| 技术债 | Technical Debt | | [已写](../concepts/software/technical-debt-refactoring.md) |
+| 重构 | Refactoring | | [已写](../concepts/software/technical-debt-refactoring.md) |
+| 可观测性 | Observability | | [已写](../concepts/software/observability.md) |
+| 日志 / 指标 / 追踪 | Logging / Metrics / Tracing | | [已写](../concepts/software/observability.md) |
+| 退避重试 | Backoff Retry | | [已写](../concepts/software/timeout-retry-backoff.md) |
+| 熔断 | Circuit Breaker | | [已写](../concepts/software/circuit-breaker.md) |
+| 背压 | Backpressure | | [已写](../concepts/software/backpressure.md) |
 | 文档即代码 | Docs as Code | | |
 
 ---
@@ -130,3 +138,5 @@
 | Retrieval | 检索 | 召回（召回另指 recall 指标） |
 | Fine-tuning | 微调 | 精调 |
 | Alignment | 对齐 | 校准（校准对应 calibration） |
+| Backpressure | 背压 | 反压（两者都有人用，本库统一为"背压"） |
+| Fallback / Degradation | 降级 | 兜底（"兜底"含义过宽，不用作术语） |

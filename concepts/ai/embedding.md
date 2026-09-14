@@ -7,7 +7,7 @@
 | 领域 | AI / 输入层 |
 | 层级 | 基础 |
 | 前置 | [分词](tokenization.md) |
-| 相关 | 向量检索（待写） · [注意力机制](attention-mechanism.md) |
+| 相关 | [向量检索](vector-search.md) · [注意力机制](attention-mechanism.md) |
 | 状态 | `stable` |
 | 信源等级 | `unverified` 由 AI 生成，待逐条核查 |
 | 最近核对 | 2026-09-14 |

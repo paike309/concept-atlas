@@ -7,7 +7,7 @@
 | 领域 | AI / 工程 |
 | 层级 | 基础 |
 | 前置 | [上下文窗口](context-window.md) |
-| 相关 | [提示工程](prompt-engineering.md) · 向量检索（待写） |
+| 相关 | [提示工程](prompt-engineering.md) · [向量检索](vector-search.md) |
 | 状态 | `stable` |
 | 信源等级 | `unverified` 由 AI 生成，待逐条核查 |
 | 最近核对 | 2026-09-14 |

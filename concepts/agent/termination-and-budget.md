@@ -7,7 +7,7 @@
 | 领域 | Agent / 控制流 |
 | 层级 | 基础 |
 | 前置 | [Agent 循环](agent-loop.md) |
-| 相关 | 上下文预算管理（待写） · 轨迹可观测性与回放（待写） |
+| 相关 | [上下文预算管理](context-budget.md) · [轨迹可观测性与回放](trajectory-observability.md) |
 | 状态 | `stable` |
 | 信源等级 | `unverified` 由 AI 生成，待逐条核查 |
 | 最近核对 | 2026-09-14 |
