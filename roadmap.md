@@ -221,3 +221,11 @@
 1. 把这里的 `[ ]` 改成 `[x]`
 2. 更新对应领域的 `待写 N` 计数
 3. 更新 [`maps/overview.md`](maps/overview.md) 底部的进度表
+
+---
+
+## 许可
+
+- 知识性内容（concepts/、maps/、docs/ 下的说明性文本）采用 **CC BY-SA 4.0**，见 [LICENSE](LICENSE)。
+- 代码与构建脚本（scripts/）采用 **MIT**，见 [LICENSE-CODE](LICENSE-CODE)。
+- 第 2 轮核查清单见 [docs/round2-verification-checklist.md](docs/round2-verification-checklist.md)。
