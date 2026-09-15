@@ -10,40 +10,92 @@
 
 ```mermaid
 flowchart TD
-    subgraph AI["AI / 模型 —— 底座"]
-        A1["分词 Tokenization"]
-        A2["注意力机制"]
-        A3["Transformer"]
-        A4["上下文窗口"]
-        A5["训练与对齐"]
-        A6["检索 RAG"]
-        A7["评估"]
+    subgraph G_ai["AI / 模型"]
+    n_alignment["对齐"]
+    n_attention_mechanism["注意力机制"]
+    n_benchmarks["基准与基准污染"]
+    n_context_window["上下文窗口"]
+    n_dpo["直接偏好优化"]
+    n_embedding["词嵌入"]
+    n_evaluation["评估方法论"]
+    n_feed_forward_network["前馈网络"]
+    n_hallucination["幻觉"]
+    n_inference_cost["推理成本与显存估算"]
+    n_inference_engines["推理引擎与服务化"]
+    n_instruction_tuning["指令微调与对话格式"]
+    n_jailbreak["越狱与红队测试"]
+    n_knowledge_distillation["知识蒸馏"]
+    n_kv_cache["键值缓存"]
+    n_lora["LoRA 与参数高效微调"]
+    n_model_selection["模型选型与成本权衡"]
+    n_moe["专家混合"]
+    n_multi_head_attention["多头注意力"]
+    n_positional_encoding["位置编码"]
+    n_pretraining["预训练与自监督目标"]
+    n_prompt_engineering["提示工程"]
+    n_quantization["量化"]
+    n_rag["RAG 检索增强生成"]
+    n_reranking["重排序"]
+    n_residual_and_normalization["残差连接与层归一化"]
+    n_rlhf["基于人类反馈的强化学习"]
+    n_sampling["采样策略"]
+    n_scaling_laws["缩放定律"]
+    n_sft["监督微调"]
+    n_tokenization["分词"]
+    n_training_paradigms["训练范式总览"]
+    n_transformer["Transformer 架构"]
+    n_vector_search["向量检索"]
     end
-
-    subgraph AG["Agent —— 控制流"]
-        B1["Agent 循环"]
-        B2["工具与 MCP"]
-        B3["上下文预算管理"]
-        B4["轨迹可观测性"]
+    subgraph G_agent["Agent / 控制流"]
+    n_agent_evaluation["Agent 评测"]
+    n_agent_loop["Agent 循环"]
+    n_code_execution_sandbox["代码执行沙箱"]
+    n_context_budget["上下文预算管理"]
+    n_context_compression["上下文压缩与摘要"]
+    n_failure_modes["失败模式分类"]
+    n_function_calling["函数调用"]
+    n_human_in_the_loop["人在回路"]
+    n_least_privilege["权限与最小授权"]
+    n_long_term_memory["长期记忆"]
+    n_mcp["模型上下文协议"]
+    n_plan_and_execute["计划-执行"]
+    n_prompt_injection_defense["提示注入防御"]
+    n_react_and_planning["ReAct 与规划范式"]
+    n_single_vs_multi_agent["单 Agent 与多 Agent 的取舍"]
+    n_structured_state["结构化状态与外部存储"]
+    n_termination_and_budget["终止条件与预算"]
+    n_tool_definition["工具定义"]
+    n_trajectory_observability["轨迹可观测性与回放"]
     end
-
-    subgraph SW["软件工程 —— 工程约束"]
-        C1["依赖注入"]
-        C2["测试与正确性"]
-        C3["变更管理"]
-        C4["可观测性"]
+    subgraph G_software["软件工程"]
+    n_adr["架构决策记录"]
+    n_backpressure["背压与容量"]
+    n_changelog["变更日志"]
+    n_circuit_breaker["熔断与降级"]
+    n_code_review["代码审查"]
+    n_composition_over_inheritance["组合优于继承"]
+    n_contract_design["契约与接口设计"]
+    n_contract_testing["契约测试"]
+    n_dependency_injection["依赖注入"]
+    n_dependency_inversion["依赖倒置原则"]
+    n_domain_model["领域模型"]
+    n_idempotency["幂等性"]
+    n_layered_architecture["分层架构与模块边界"]
+    n_observability["可观测性"]
+    n_ports_and_adapters["端口与适配器"]
+    n_property_based_testing["属性测试"]
+    n_reproducible_build["可复现构建"]
+    n_semantic_versioning["语义化版本"]
+    n_single_responsibility["单一职责与职责划分"]
+    n_technical_debt_refactoring["技术债与重构"]
+    n_test_pyramid["测试金字塔"]
+    n_timeout_retry_backoff["超时、重试与退避"]
+    n_unit_testing["单元测试与可测性"]
+    n_version_control_branching["版本控制与分支策略"]
     end
-
-    A1 --> A2 --> A3 --> A4
-    A3 --> A5
-    A4 --> A6
-    A4 --> B1
-    B1 --> B2
-    B1 --> B3
-    B1 --> B4
-    C1 --> C2 --> C3
-    B4 -.-> C4
-    B1 -.-> C1
+    n_evaluation --> n_agent_evaluation
+    n_context_window --> n_agent_loop
+    n_context_window --> n_context_budget
 ```
 
 实线 = 前置依赖，箭头方向即阅读方向。虚线 = 跨领域的影响，不是前置。
@@ -103,6 +155,8 @@ flowchart TD
 | 补充与延伸（P2） | 34 个，已补齐 |
 | 信源等级 | 76 张 `link-checked`，1 张 `unverified` |
 
-概念已铺齐，来源链接也已逐条机器核验（35 个 arXiv 编号零错配）。但**正文表述与来源原文尚未逐条比对**，数量级数字也未实测——所以现在的正确用法仍是当作索引与提问清单，不是当作事实依据。核查记录见 [`docs/verification-log.md`](../docs/verification-log.md)。
+概念已铺齐，来源链接也已逐条机器核验（35 个 arXiv 编号零错配）。但**正文表述与来源原文尚未逐条比对**，数量级数字也未实测——所以现在的正确用法仍是当作索引与提问清单，不是当作事实依据。核查记录见 [`docs/verification-log.md`](../docs/verification-log.md)；第 2 轮逐卡核查清单见 [`docs/round2-verification-checklist.md`](../docs/round2-verification-checklist.md)。
+
+本页的 Mermaid 图由 [`scripts/build_maps.py`](../scripts/build_maps.py) 从各卡「前置」字段自动生成，**不要手改图**——加卡或改前置后跑一次脚本即可同步，CI 也会比对一致性。
 
 每一项的明细和优先级见 [概念清单](../roadmap.md)。**清单里未勾选的部分，就是这个库当前承认的缺口**——把它显式写出来，比靠记忆维护 TODO 可靠。

@@ -7,50 +7,46 @@ Agent 的复杂度不在模型，在**循环周边的四件事**。四件事里�
 ## 四条线
 
 ```mermaid
-flowchart LR
-    subgraph CT["1 控制流"]
-        C1["Agent 循环"]
-        C2["终止条件与预算"]
-        C3["ReAct 与规划范式"]
-        C4["Plan-and-Execute"]
-        C5["单/多 Agent 取舍"]
+flowchart TD
+    subgraph G_agent["Agent / 控制流"]
+    n_agent_evaluation["Agent 评测"]
+    n_agent_loop["Agent 循环"]
+    n_code_execution_sandbox["代码执行沙箱"]
+    n_context_budget["上下文预算管理"]
+    n_context_compression["上下文压缩与摘要"]
+    n_failure_modes["失败模式分类"]
+    n_function_calling["函数调用"]
+    n_human_in_the_loop["人在回路"]
+    n_least_privilege["权限与最小授权"]
+    n_long_term_memory["长期记忆"]
+    n_mcp["模型上下文协议"]
+    n_plan_and_execute["计划-执行"]
+    n_prompt_injection_defense["提示注入防御"]
+    n_react_and_planning["ReAct 与规划范式"]
+    n_single_vs_multi_agent["单 Agent 与多 Agent 的取舍"]
+    n_structured_state["结构化状态与外部存储"]
+    n_termination_and_budget["终止条件与预算"]
+    n_tool_definition["工具定义"]
+    n_trajectory_observability["轨迹可观测性与回放"]
     end
-
-    subgraph TL["2 工具"]
-        T1["工具定义"]
-        T2["函数调用"]
-        T3["MCP"]
-        T4["代码执行沙箱"]
-    end
-
-    subgraph ST["3 状态与记忆"]
-        S1["上下文预算管理"]
-        S2["上下文压缩"]
-        S3["结构化状态"]
-        S4["长期记忆"]
-    end
-
-    subgraph QA["4 质量与安全"]
-        Q1["轨迹可观测性"]
-        Q2["失败模式分类"]
-        Q3["提示注入防御"]
-        Q4["权限与最小授权"]
-        Q5["人在回路"]
-        Q6["Agent 评测"]
-    end
-
-    C1 --> C2
-    C1 --> C3 --> C4
-    C3 --> C5
-    C1 --> T1 --> T2 --> T3
-    T2 --> T4
-    C1 --> S1 --> S2
-    S2 --> S3
-    S3 --> S4
-    C1 --> Q1 --> Q2
-    Q1 --> Q3 --> Q4
-    Q4 --> Q5
-    Q2 --> Q6
+    n_trajectory_observability --> n_agent_evaluation
+    n_tool_definition --> n_code_execution_sandbox
+    n_agent_loop --> n_context_budget
+    n_context_budget --> n_context_compression
+    n_trajectory_observability --> n_failure_modes
+    n_tool_definition --> n_function_calling
+    n_least_privilege --> n_human_in_the_loop
+    n_prompt_injection_defense --> n_least_privilege
+    n_context_budget --> n_long_term_memory
+    n_tool_definition --> n_mcp
+    n_react_and_planning --> n_plan_and_execute
+    n_function_calling --> n_prompt_injection_defense
+    n_agent_loop --> n_react_and_planning
+    n_agent_loop --> n_single_vs_multi_agent
+    n_context_budget --> n_structured_state
+    n_agent_loop --> n_termination_and_budget
+    n_agent_loop --> n_tool_definition
+    n_agent_loop --> n_trajectory_observability
 ```
 
 ---
