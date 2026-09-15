@@ -135,6 +135,35 @@
 | 熔断 | Circuit Breaker | | [已写](../concepts/software/circuit-breaker.md) |
 | 背压 | Backpressure | | [已写](../concepts/software/backpressure.md) |
 | 文档即代码 | Docs as Code | | |
+| 事务 | Transaction | | [已写](../concepts/software/transactions-acid.md) |
+| ACID | ACID | | [已写](../concepts/software/transactions-acid.md) |
+| 原子性 / 隔离性 / 持久性 | Atomicity / Isolation / Durability | | [已写](../concepts/software/transactions-acid.md) |
+| 事务边界 | Transaction Boundary | | [已写](../concepts/software/transactions-acid.md) |
+| 隔离级别 | Isolation Level | | [已写](../concepts/software/transaction-isolation.md) |
+| 脏读 | Dirty Read | | [已写](../concepts/software/transaction-isolation.md) |
+| 不可重复读 | Non-repeatable Read | | [已写](../concepts/software/transaction-isolation.md) |
+| 幻读 | Phantom Read | | [已写](../concepts/software/transaction-isolation.md) |
+| 写偏斜 | Write Skew | | [已写](../concepts/software/transaction-isolation.md) |
+| 快照隔离 | Snapshot Isolation | SI | [已写](../concepts/software/transaction-isolation.md) |
+| 可串行化 | Serializable | | [已写](../concepts/software/transaction-isolation.md) |
+| 索引 | Index | | [已写](../concepts/software/index-and-query-plan.md) |
+| 查询计划 | Query Plan | | [已写](../concepts/software/index-and-query-plan.md) |
+| 最左前缀 | Leftmost Prefix | | [已写](../concepts/software/index-and-query-plan.md) |
+| 范式化 | Normalization | | [已写](../concepts/software/normalization.md) |
+| 反范式化 | Denormalization | | [已写](../concepts/software/normalization.md) |
+| 更新异常 | Update Anomaly | | [已写](../concepts/software/normalization.md) |
+| 复制 | Replication | | [已写](../concepts/software/replication-and-consistency.md) |
+| 一致性模型 | Consistency Model | | [已写](../concepts/software/replication-and-consistency.md) |
+| 线性一致 | Linearizability | | [已写](../concepts/software/replication-and-consistency.md) |
+| 最终一致 | Eventual Consistency | | [已写](../concepts/software/replication-and-consistency.md) |
+| 复制滞后 | Replication Lag | | [已写](../concepts/software/replication-and-consistency.md) |
+| 分片 | Sharding | | [已写](../concepts/software/sharding-and-partitioning.md) |
+| 表分区 | Table Partitioning | | [已写](../concepts/software/sharding-and-partitioning.md) |
+| 再平衡 | Rebalancing | | [已写](../concepts/software/sharding-and-partitioning.md) |
+| schema 迁移 | Schema Migration | | [已写](../concepts/software/schema-migration.md) |
+| 双写与回填 | Dual Write & Backfill | | [已写](../concepts/software/schema-migration.md) |
+| 连接池 | Connection Pool | | [已写](../concepts/software/connection-pooling.md) |
+| 连接耗尽 | Connection Exhaustion | | [已写](../concepts/software/connection-pooling.md) |
 
 ---
 
@@ -156,3 +185,11 @@
 | Alignment | 对齐 | 校准（校准对应 calibration） |
 | Backpressure | 背压 | 反压（两者都有人用，本库统一为"背压"） |
 | Fallback / Degradation | 降级 | 兜底（"兜底"含义过宽，不用作术语） |
+| Transaction | 事务 | 交易（"交易"另指业务动作，不是数据库术语） |
+| Isolation | 隔离 | 孤立 |
+| Index | 索引 | 下标（编程语境另用"下标"） |
+| Normalization | 范式化 | 规范化（本库统一用"范式化"，避免与其他含义混） |
+| Serializable | 可串行化 | 序列化（"序列化"另指 serialize，是完全不同的事） |
+| Replication | 复制 | 副本（"副本"指节点，是名词，不是这层机制） |
+| Sharding | 分片 | 分库分表（口语说法，本库统一用"分片"） |
+| Partitioning | 分区 | 分片（两者不在同一层：分区是单库内，分片是跨节点） |
