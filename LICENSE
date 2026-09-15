@@ -1,0 +1,17 @@
+知识库内容许可 · Content License
+
+本仓库中的知识性内容（concepts/、maps/、docs/ 下除代码与构建脚本以外的
+所有说明性文本）采用 Creative Commons Attribution-ShareAlike 4.0
+International (CC BY-SA 4.0) 许可。
+
+- 署名（Attribution）：使用本内容时须注明出处（本仓库及原作者 paike309）。
+- 相同方式共享（ShareAlike）：基于本内容创作的演绎作品，须以相同许可发布。
+
+完整法律文本：
+https://creativecommons.org/licenses/by-sa/4.0/legalcode
+
+人类可读摘要：
+https://creativecommons.org/licenses/by-sa/4.0/
+
+代码与构建脚本（scripts/ 目录下的 Python 脚本）采用单独的 MIT 许可，
+见 LICENSE-CODE。
