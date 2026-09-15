@@ -49,7 +49,9 @@
 | **变更管理** | 一年后还看得懂吗 | 6 |
 | **运行** | 上线之后才是开始 | 4 |
 
-层级分布：**基础 14 / 进阶 6 / 前沿 4**。
+层级分布：**基础 15 / 进阶 6 / 前沿 3**。
+
+> 本文按"一条软件从头到尾"排。同一个对象的**结构切面**——它由哪几块组成、每块起什么作用、动一处会牵连哪几处——见 [`system-anatomy.md`](system-anatomy.md)。
 
 ---
 
@@ -124,23 +126,22 @@
 
 ## 数据库在哪里
 
-**直说：本库没有任何数据库概念卡。**
+**这一块已经从"零卡片"补齐到 8 张。**
 
-这一点需要分辨清楚，因为它是**真实缺口**，而不是收录原则导致的排除：
+按本文开头那条标准（"换一个语言或框架之后，这个概念还成立吗？"），**事务、隔离级别、索引、范式化、一致性模型、分片**都应当收录——它们不依赖具体数据库产品。按原则**不应该**收录的是 MySQL / PostgreSQL / Redis 这类具体产品。
 
-- 按本文开头那条标准（"换一个语言或框架之后，这个概念还成立吗？"），**事务、隔离级别、索引、范式化、一致性模型、分片**这些都**应当被收录**——它们不依赖具体数据库产品。
-- 按原则**不应该**收录的是 MySQL / PostgreSQL / Redis 这类具体产品。
-- 现状是：**两者都没有。**
+现状（全部已写）：
 
-库里与数据打交道最近的三个地方：
-
-| 位置 | 它覆盖了什么 |
+| 分组 | 条目 |
 |---|---|
-| [幂等性](../concepts/software/idempotency.md) | 重复执行的语义——"写两次等于写一次"，这是重试能成立的前提 |
-| [契约与接口设计](../concepts/software/contract-design.md) | 契约中明确列出**幂等性**与兼容性承诺 |
-| [结构化状态与外部存储](../concepts/agent/structured-state.md)（Agent 域） | 状态怎么落到外部结构化记录里 |
+| **单库（4）** | [事务与 ACID](../concepts/software/transactions-acid.md) · [隔离级别与并发异常](../concepts/software/transaction-isolation.md) · [索引与查询计划](../concepts/software/index-and-query-plan.md) · [范式化与反范式化](../concepts/software/normalization.md) |
+| **分布式（4）** | [复制与一致性模型](../concepts/software/replication-and-consistency.md) · [分片与分区](../concepts/software/sharding-and-partitioning.md) · [schema 迁移与版本化](../concepts/software/schema-migration.md) · [连接池与容量](../concepts/software/connection-pooling.md) |
 
-**缺口条目（可作为 roadmap 候补）**：事务与 ACID · 隔离级别与并发异常 · 索引与查询计划 · 范式化与反范式化 · 复制与一致性模型 · 分片与分区 · schema 迁移与版本化 · 连接池与容量。
+为什么必须成对补齐：**隔离级别保证的是"一个数据库内部"的并发语义；数据一旦分布在多个节点上，"一致性"换了一套定义**，前者不再覆盖后者。只补单库那一半，会得到一个"看起来讲了一致性、实际只讲了单机"的错觉。
+
+另外两处与数据打交道、可对照读的卡片：[幂等性](../concepts/software/idempotency.md)（重复执行的语义——"写两次等于写一次"，重试能成立的前提）与 Agent 域的[结构化状态与外部存储](../concepts/agent/structured-state.md)（状态怎么落到外部结构化记录里）。
+
+缺口条目已登记在[清单](../roadmap.md)的「缺口登记（第四批）」。
 
 ---
 
@@ -167,7 +168,7 @@
 - **网络与 API 风格**：REST / gRPC 的取舍、幂等键、限流。[契约与接口设计](../concepts/software/contract-design.md)只触及"约定"层面。
 - **构建与依赖管理**：锁定版本、依赖图、供应链可信。[可复现构建](../concepts/software/reproducible-build.md)触及一部分。
 
-`roadmap.md` 目前把软件工程域记为「待写 0」。**这与本节和上面两节的缺口是矛盾的**——若要把它们纳入，需要先在[清单](../roadmap.md)里记为待写。
+上面三节的缺口**已登记进[清单](../roadmap.md)的「缺口登记（第四批）」**，软件工程域因此记为「待写 24」。登记之前那一栏写的是「待写 0」——那与本节的缺口是矛盾的。**清单与正文说同一件事，这个矛盾才算真正关掉。**
 
 ---
 

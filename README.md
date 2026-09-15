@@ -84,12 +84,27 @@ Mermaid 图里的节点**不加链接**（GitHub 对图内链接支持不稳定�
 
 ## 索引
 
+### 按问题找入口
+
+| 我想知道 | 去哪 |
+|---|---|
+| **一个系统由哪些部分组成、各起什么作用** | [`docs/system-anatomy.md`](docs/system-anatomy.md) |
+| **动一处会牵连哪几处** | 同上，看它的「相互影响」一节 |
+| 某个领域由哪些部分组成 | [`docs/ai-composition.md`](docs/ai-composition.md) · [`docs/agent-composition.md`](docs/agent-composition.md) · [`docs/software-composition.md`](docs/software-composition.md) |
+| 我该按什么顺序读 | [`maps/overview.md`](maps/overview.md) |
+| 某个概念是什么 | [`concepts/`](concepts/) |
+| 这些概念之间怎么依赖 | [`maps/ai.md`](maps/ai.md) · [`maps/agent.md`](maps/agent.md) · [`maps/software.md`](maps/software.md) |
+| 某个词的中英对照 | [`docs/glossary.md`](docs/glossary.md) |
+| 这个库还缺什么 | [`roadmap.md`](roadmap.md) |
+| 内容可信到什么程度 | [`docs/verification-log.md`](docs/verification-log.md) |
+| 怎么加一张卡 | [`docs/schema.md`](docs/schema.md) + [`docs/template.md`](docs/template.md) |
+
 ### 地图
 
 | 地图 | 内容 |
 |---|---|
 | [总图](maps/overview.md) | 三个领域的关系、阅读顺序、卡住时的诊断 |
-| [AI 地图](maps/ai.md) | 从算子到系统的五层结构 |
+| [AI 地图](maps/ai.md) | 从算子到系统的六层结构（L0–L5） |
 | [Agent 地图](maps/agent.md) | 控制流、工具、状态、质量四条线 |
 | [软件工程地图](maps/software.md) | 设计、正确性、变更、运行四条线 |
 
@@ -97,22 +112,23 @@ Mermaid 图里的节点**不加链接**（GitHub 对图内链接支持不稳定�
 
 | 文档 | 内容 |
 |---|---|
+| [`docs/system-anatomy.md`](docs/system-anatomy.md) | **一个系统由哪些部分组成、各起什么作用、动一处会牵连哪几处** |
+| [`docs/ai-composition.md`](docs/ai-composition.md) | **AI 由哪些部分组成、每部分起什么作用** |
+| [`docs/agent-composition.md`](docs/agent-composition.md) | **Agent 由哪些部分组成、每部分起什么作用** |
+| [`docs/software-composition.md`](docs/software-composition.md) | **软件从头到尾需要什么**；数据库与运维的落点与缺口 |
 | [`docs/schema.md`](docs/schema.md) | 卡片规格：字段、命名、信源等级、正文八节 |
 | [`docs/template.md`](docs/template.md) | 新建卡片时复制这个 |
 | [`docs/glossary.md`](docs/glossary.md) | 中英术语对照 + 译名约定 |
 | [`docs/verification-log.md`](docs/verification-log.md) | 每次核查做了什么、查出什么、**没做什么** |
 | [`docs/round2-verification-checklist.md`](docs/round2-verification-checklist.md) | 第 2 轮核查的方法与纪律 |
-| [`docs/ai-composition.md`](docs/ai-composition.md) | **AI 由哪些部分组成、每部分起什么作用** |
-| [`docs/agent-composition.md`](docs/agent-composition.md) | **Agent 由哪些部分组成、每部分起什么作用** |
-| [`docs/software-composition.md`](docs/software-composition.md) | **软件从头到尾需要什么**；数据库与运维的落点与缺口 |
 
 ### 卡片
 
 | 领域 | 已写 | 待写 | 地图 |
 |---|---|---|---|
-| AI | 34 | 0 | [AI 地图](maps/ai.md) |
-| Agent | 19 | 0 | [Agent 地图](maps/agent.md) |
-| 软件工程 | 24 | 0 | [软件工程地图](maps/software.md) |
+| AI | 34 | 9 | [AI 地图](maps/ai.md) |
+| Agent | 19 | 5 | [Agent 地图](maps/agent.md) |
+| 软件工程 | 32 | 16 | [软件工程地图](maps/software.md) |
 
 **完整卡片索引在 [`roadmap.md`](roadmap.md)** —— 那份清单同时是任务列表和索引，`[x]` 是可点的链接，`[ ]` 表示还没写。
 

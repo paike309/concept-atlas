@@ -4,6 +4,87 @@
 
 ---
 
+## 2026-09-16 · 第四批续：数据与一致性（分布式 4 张）
+
+**范围**：新写 4 张卡 —— [复制与一致性模型](../concepts/software/replication-and-consistency.md)、[分片与分区](../concepts/software/sharding-and-partitioning.md)、[schema 迁移与版本化](../concepts/software/schema-migration.md)、[连接池与容量](../concepts/software/connection-pooling.md)。共 9 处来源引用，去重后 6 个 URL。
+
+### 方法
+
+与上一轮相同（可达性 + 页面标题比对），覆盖 6 个 URL。
+
+### 结果
+
+**6 个 URL 全部返回 200，标题与卡片声称一致**：
+
+| URL | 页面标题 |
+|---|---|
+| postgresql.org/docs/current/ddl-partitioning.html | PostgreSQL 18: 5.12. Table Partitioning |
+| postgresql.org/docs/current/runtime-config-connection.html | PostgreSQL 18: 19.3. Connections and Authentication |
+| postgresql.org/docs/current/hot-standby.html | PostgreSQL 18: 26.4. Hot Standby |
+| martinfowler.com/articles/evodb.html | Evolutionary Database Design |
+| github.com/brettwooldridge/HikariCP | HikariCP 项目仓库 |
+| jepsen.io/consistency | Consistency |
+| dataintensive.net | Designing Data-Intensive Applications |
+
+（实际 7 个 URL，其中 DDIA 与 Jepsen 在两张卡中共用。）
+
+### 本轮**没有**做的事
+
+1. **没有实测任何行为。** 复制延迟的量级、quorum 的失效场景、分片再平衡的耗时、连接池大小与吞吐的关系曲线，全部来自来源文档与工程共识，**本机未做任何复现**。
+2. **没有逐条比对正文表述与来源原文。** 仍是"引对了文档"，不是"文档支持这句话"。
+3. **没有在多个数据库上核对。** 分区实现、加列是否重写整表、在线建索引的能力，各数据库差异很大，卡片里是定性描述。
+4. **没有核验任何具体产品的参数默认值。** 卡片刻意不写默认值——那类数字随版本变化，写进来就等于埋一颗会过期的钉子。
+5. **「我的理解」一节同样由 AI 起草。** 与上一轮同一问题，这 4 张卡也未标 `human-reviewed`。
+
+### 进度
+
+**数据与一致性这一组（8 张）已全部写完**，是第四批登记的 38 项缺口里**第一组被关掉的**。剩余：AI 9 · Agent 5 · 软件工程 16（安全 4 · 运维与发布 7 · 并发性能与协议 5）。
+
+随着这 8 张到位，[`docs/system-anatomy.md`](system-anatomy.md) 的「链五」（状态边界 → 并发 → 失败恢复 → 重试策略）**第一次画得全**——在此之前它只能写到"隔离级别管不到跨节点"就断掉。
+
+---
+
+## 2026-09-15 · 第四批补写：数据与一致性（单库 4 张）
+
+**范围**：新写 4 张卡 —— [事务与 ACID](../concepts/software/transactions-acid.md)、[隔离级别与并发异常](../concepts/software/transaction-isolation.md)、[索引与查询计划](../concepts/software/index-and-query-plan.md)、[范式化与反范式化](../concepts/software/normalization.md)。共 8 处来源引用，去重后 6 个 URL。
+
+### 方法
+
+| 检查项 | 方法 | 覆盖 |
+|---|---|---|
+| 链接可达性 | HTTP 请求并记录状态码 | 8 处（去重 6 个） |
+| 页面标题与卡片声称是否一致 | 抓取页面 `<title>`，与卡片「参考来源」里声称的名称逐条比对 | 6 个 |
+
+### 结果
+
+- **6 个 URL 全部返回 200，标题与卡片声称一致**，据此标 `link-checked`：
+  - PostgreSQL 18 文档 4 页：3.4 Transactions · 13.2 Transaction Isolation · Chapter 11 Indexes · 14.1 Using EXPLAIN
+  - Use The Index, Luke!（电子书站）
+  - Designing Data-Intensive Applications（书站）
+
+### 本轮取消的候选来源
+
+| 候选 | 状态 | 处理 |
+|---|---|---|
+| Codd 1970, *A Relational Model of Data for Large Shared Data Banks*（dl.acm.org DOI） | 403 出版社反爬 | 未采用；范式化卡改用可核验来源，正文不再依赖该篇 |
+| martinfowler.com/bliki/Denormalized.html | **404，页面不存在** | 未采用 |
+| arXiv 1907.07902（Hermitage）· 1302.0309（HAT） | 本机不可达（连接失败） | 未采用，改引 Jepsen 与 PostgreSQL 文档 |
+
+后两条值得记一笔：**候选来源里有两个是"看起来应该存在"却没有用成的**——一个是猜测的 URL（实际 404），一个是环境不可达。第一轮核查也遇到过同类情况（6 条来源当时未能核验）。**"以为有"和"核过有"之间的距离，就是这一栏存在的理由。**
+
+### 本轮**没有**做的事
+
+1. **没有逐条比对正文表述与来源原文。** 例如"最左前缀"的具体适用条件、index-only scan 的可见性限制，来源文档里有更精确的表述；本轮只核到"引对了文档"，没核到"文档支持这句话"。
+2. **没有实测任何数字。** 索引选择性、长事务导致膨胀的程度，均未在本机复现。
+3. **没有跨数据库核对。** 隔离级别的实现差异（PostgreSQL 与 MySQL 不完全对齐）在卡里是定性描述，未逐库验证。
+4. **「我的理解」一节由 AI 起草。** 按 [`schema.md`](schema.md) 的要求，这一节本应由本人重写才可能达到 `human-reviewed`。这 4 张卡没有标 `human-reviewed`，**这一栏的纪律仍待作者本人执行**——写卡的人不是拥有理解的人，这一点不能靠标等级掩盖。
+
+### 缺口进度
+
+数据与一致性这一组共 8 张，本轮补齐单库的 4 张；**分布式 4 张仍缺**（复制与一致性模型、分片与分区、schema 迁移与版本化、连接池与容量）。[`docs/system-anatomy.md`](system-anatomy.md) 的「链五」目前画不全，原因就是这四张。
+
+---
+
 ## 2026-09-14 · 第一轮：来源链接机器核验
 
 **范围**：全部 77 张卡片，121 处来源引用。去重后 69 个 URL——其中 35 个是 arXiv 条目页，34 个是其他站点。
