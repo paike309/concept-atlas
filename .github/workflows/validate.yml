@@ -20,3 +20,6 @@ jobs:
 
       - name: 结构校验
         run: python scripts/validate.py
+
+      - name: 地图一致性
+        run: python scripts/build_maps.py --check
