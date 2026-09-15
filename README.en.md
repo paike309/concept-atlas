@@ -61,6 +61,8 @@ Diagrams are **Mermaid** in fenced code blocks. GitHub renders them natively —
 
 Start at [`maps/overview.md`](maps/overview.md).
 
+Written overviews of what each domain is made of — and what each part does — are in [`docs/ai-composition.md`](docs/ai-composition.md), [`docs/agent-composition.md`](docs/agent-composition.md), and [`docs/software-composition.md`](docs/software-composition.md). (Chinese only.)
+
 ---
 
 ## Status and provenance
