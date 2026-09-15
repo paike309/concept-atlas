@@ -101,6 +101,10 @@ Mermaid 图里的节点**不加链接**（GitHub 对图内链接支持不稳定�
 | [`docs/template.md`](docs/template.md) | 新建卡片时复制这个 |
 | [`docs/glossary.md`](docs/glossary.md) | 中英术语对照 + 译名约定 |
 | [`docs/verification-log.md`](docs/verification-log.md) | 每次核查做了什么、查出什么、**没做什么** |
+| [`docs/round2-verification-checklist.md`](docs/round2-verification-checklist.md) | 第 2 轮核查的方法与纪律 |
+| [`docs/ai-composition.md`](docs/ai-composition.md) | **AI 由哪些部分组成、每部分起什么作用** |
+| [`docs/agent-composition.md`](docs/agent-composition.md) | **Agent 由哪些部分组成、每部分起什么作用** |
+| [`docs/software-composition.md`](docs/software-composition.md) | **软件从头到尾需要什么**；数据库与运维的落点与缺口 |
 
 ### 卡片
 
