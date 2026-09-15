@@ -179,6 +179,11 @@ Mermaid 图里的节点**不加链接**（GitHub 对图内链接支持不稳定�
 
 ---
 
+## 许可与第 2 轮核查
+
+- 知识性内容（concepts/、maps/、docs/ 下的说明性文本）采用 **CC BY-SA 4.0**，见 [LICENSE](LICENSE)；代码与构建脚本（scripts/）采用 **MIT**，见 [LICENSE-CODE](LICENSE-CODE)。
+- 第 1 轮只做了来源链接的机器核验（`link-checked`）。第 2 轮核查清单与纪律见 [docs/round2-verification-checklist.md](docs/round2-verification-checklist.md)；逐卡结论沉淀在 [docs/verification-log.md](docs/verification-log.md)。
+
 ## 结构取自哪里
 
 - [Open Knowledge Format v0.2](https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/okf/SPEC.md)——bundle / concept 的定义方式，以及 provenance 与 trust 字段的思路

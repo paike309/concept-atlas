@@ -1,0 +1,8 @@
+# 统一按 LF 入库。
+#
+# 理由：maps/*.md 由 scripts/build_maps.py 生成。Windows 上 Python 的文本模式
+# 默认会把 \n 写成 \r\n，而仓库其余文件都是 LF——同一份内容在不同平台产生不同
+# 字节，diff 会退化成整文件的行尾噪音，--check 闸门也看不出来。
+#
+# 显式声明可以避免依赖每个人本地的 core.autocrlf 设置。
+* text=auto eol=lf

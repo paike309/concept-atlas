@@ -8,16 +8,79 @@ AI 的知识不是平铺的清单，是**五层堆叠**。每层解决上一层�
 
 ```mermaid
 flowchart TD
-    L0["L0 输入层<br/>文本 → 张量"]
-    L1["L1 架构层<br/>算子 → 模型"]
-    L2["L2 训练层<br/>随机权重 → 可用能力"]
-    L3["L3 推理层<br/>跑起来的成本与限制"]
-    L4["L4 工程层<br/>怎么把它用起来"]
-    L5["L5 评估与安全<br/>怎么知道它行不行"]
-
-    L0 --> L1 --> L2 --> L3 --> L4
-    L3 --> L5
-    L4 --> L5
+    subgraph G_ai["AI / 模型"]
+    n_alignment["对齐"]
+    n_attention_mechanism["注意力机制"]
+    n_benchmarks["基准与基准污染"]
+    n_context_window["上下文窗口"]
+    n_dpo["直接偏好优化"]
+    n_embedding["词嵌入"]
+    n_evaluation["评估方法论"]
+    n_feed_forward_network["前馈网络"]
+    n_hallucination["幻觉"]
+    n_inference_cost["推理成本与显存估算"]
+    n_inference_engines["推理引擎与服务化"]
+    n_instruction_tuning["指令微调与对话格式"]
+    n_jailbreak["越狱与红队测试"]
+    n_knowledge_distillation["知识蒸馏"]
+    n_kv_cache["键值缓存"]
+    n_lora["LoRA 与参数高效微调"]
+    n_model_selection["模型选型与成本权衡"]
+    n_moe["专家混合"]
+    n_multi_head_attention["多头注意力"]
+    n_positional_encoding["位置编码"]
+    n_pretraining["预训练与自监督目标"]
+    n_prompt_engineering["提示工程"]
+    n_quantization["量化"]
+    n_rag["RAG 检索增强生成"]
+    n_reranking["重排序"]
+    n_residual_and_normalization["残差连接与层归一化"]
+    n_rlhf["基于人类反馈的强化学习"]
+    n_sampling["采样策略"]
+    n_scaling_laws["缩放定律"]
+    n_sft["监督微调"]
+    n_tokenization["分词"]
+    n_training_paradigms["训练范式总览"]
+    n_transformer["Transformer 架构"]
+    n_vector_search["向量检索"]
+    end
+    n_rlhf --> n_alignment
+    n_dpo --> n_alignment
+    n_evaluation --> n_benchmarks
+    n_attention_mechanism --> n_context_window
+    n_transformer --> n_context_window
+    n_rlhf --> n_dpo
+    n_tokenization --> n_embedding
+    n_prompt_engineering --> n_evaluation
+    n_transformer --> n_feed_forward_network
+    n_pretraining --> n_hallucination
+    n_context_window --> n_inference_cost
+    n_inference_cost --> n_inference_engines
+    n_kv_cache --> n_inference_engines
+    n_sft --> n_instruction_tuning
+    n_alignment --> n_jailbreak
+    n_sft --> n_knowledge_distillation
+    n_attention_mechanism --> n_kv_cache
+    n_inference_cost --> n_kv_cache
+    n_sft --> n_lora
+    n_evaluation --> n_model_selection
+    n_inference_cost --> n_model_selection
+    n_feed_forward_network --> n_moe
+    n_attention_mechanism --> n_multi_head_attention
+    n_attention_mechanism --> n_positional_encoding
+    n_transformer --> n_pretraining
+    n_context_window --> n_prompt_engineering
+    n_inference_cost --> n_quantization
+    n_context_window --> n_rag
+    n_vector_search --> n_reranking
+    n_transformer --> n_residual_and_normalization
+    n_sft --> n_rlhf
+    n_context_window --> n_sampling
+    n_pretraining --> n_scaling_laws
+    n_pretraining --> n_sft
+    n_transformer --> n_training_paradigms
+    n_attention_mechanism --> n_transformer
+    n_embedding --> n_vector_search
 ```
 
 **层与层之间是「问题 → 解法 → 新问题」的关系**，不是分类关系：

@@ -10,49 +10,51 @@
 
 ```mermaid
 flowchart TD
-    subgraph D["1 设计原则"]
-        D1["依赖注入"]
-        D2["单一职责"]
-        D3["依赖倒置"]
-        D4["组合优于继承"]
+    subgraph G_software["软件工程"]
+    n_adr["架构决策记录"]
+    n_backpressure["背压与容量"]
+    n_changelog["变更日志"]
+    n_circuit_breaker["熔断与降级"]
+    n_code_review["代码审查"]
+    n_composition_over_inheritance["组合优于继承"]
+    n_contract_design["契约与接口设计"]
+    n_contract_testing["契约测试"]
+    n_dependency_injection["依赖注入"]
+    n_dependency_inversion["依赖倒置原则"]
+    n_domain_model["领域模型"]
+    n_idempotency["幂等性"]
+    n_layered_architecture["分层架构与模块边界"]
+    n_observability["可观测性"]
+    n_ports_and_adapters["端口与适配器"]
+    n_property_based_testing["属性测试"]
+    n_reproducible_build["可复现构建"]
+    n_semantic_versioning["语义化版本"]
+    n_single_responsibility["单一职责与职责划分"]
+    n_technical_debt_refactoring["技术债与重构"]
+    n_test_pyramid["测试金字塔"]
+    n_timeout_retry_backoff["超时、重试与退避"]
+    n_unit_testing["单元测试与可测性"]
+    n_version_control_branching["版本控制与分支策略"]
     end
-
-    subgraph S["2 结构与边界"]
-        S1["分层架构"]
-        S2["端口与适配器"]
-        S3["契约与接口设计"]
-        S4["领域模型"]
-        S5["幂等性"]
-    end
-
-    subgraph C["3 正确性"]
-        C1["测试金字塔"]
-        C2["单元测试"]
-        C3["契约测试"]
-        C4["属性测试"]
-        C5["可复现构建"]
-    end
-
-    subgraph M["4 变更管理"]
-        M1["版本控制与分支策略"]
-        M2["代码审查"]
-        M3["语义化版本"]
-        M4["变更日志"]
-        M5["ADR 决策记录"]
-        M6["技术债与重构"]
-    end
-
-    subgraph O["5 运行"]
-        O1["可观测性"]
-        O2["超时 / 重试 / 退避"]
-        O3["熔断与降级"]
-        O4["背压与容量"]
-    end
-
-    D --> S --> C
-    S --> M
-    C --> O
-    M --> O
+    n_changelog --> n_adr
+    n_timeout_retry_backoff --> n_backpressure
+    n_semantic_versioning --> n_changelog
+    n_timeout_retry_backoff --> n_circuit_breaker
+    n_version_control_branching --> n_code_review
+    n_dependency_inversion --> n_composition_over_inheritance
+    n_contract_testing --> n_contract_design
+    n_test_pyramid --> n_contract_testing
+    n_dependency_injection --> n_dependency_inversion
+    n_layered_architecture --> n_domain_model
+    n_timeout_retry_backoff --> n_idempotency
+    n_single_responsibility --> n_layered_architecture
+    n_dependency_inversion --> n_ports_and_adapters
+    n_layered_architecture --> n_ports_and_adapters
+    n_unit_testing --> n_property_based_testing
+    n_version_control_branching --> n_reproducible_build
+    n_version_control_branching --> n_semantic_versioning
+    n_code_review --> n_technical_debt_refactoring
+    n_test_pyramid --> n_unit_testing
 ```
 
 ---
