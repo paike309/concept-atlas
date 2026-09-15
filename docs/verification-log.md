@@ -4,6 +4,133 @@
 
 ---
 
+## 2026-09-16 · 第七批：软件工程剩余 5 张 + Agent 5 张 + AI 6 张（第四批缺口收口）
+
+**范围**：新写 16 张卡，本轮同时宣告第四批缺口登记**全部处理完毕**。
+
+| 组 | 卡片 |
+|---|---|
+| 软件工程 · 并发、性能与协议（5） | [并发与锁](../concepts/software/concurrency-and-locking.md) · [竞态与内存模型](../concepts/software/memory-model-and-races.md) · [性能剖析](../concepts/software/profiling.md) · [缓存策略](../concepts/software/caching-strategies.md) · [API 风格取舍与限流](../concepts/software/api-design-and-rate-limiting.md) |
+| Agent（5） | [多 Agent 通信与协调](../concepts/agent/multi-agent-coordination.md) · [共享状态与冲突解决](../concepts/agent/shared-state-and-conflict.md) · [Agent 成本核算](../concepts/agent/agent-cost-accounting.md) · [Agent 凭据与密钥管理](../concepts/agent/agent-credentials.md) · [GUI 与浏览器操作工具](../concepts/agent/gui-and-browser-tools.md) |
+| AI（6） | [思维链与推理模型](../concepts/ai/chain-of-thought-and-reasoning.md) · [测试时计算扩展](../concepts/ai/test-time-compute.md) · [视觉编码器](../concepts/ai/vision-encoder.md) · [跨模态对齐](../concepts/ai/cross-modal-alignment.md) · [语音与音频模型](../concepts/ai/speech-and-audio-models.md) · [扩散模型与图像生成](../concepts/ai/diffusion-models.md) |
+
+来源共 13 处，去重后 9 个 URL。**6 个返回 200 且标题一致**；**3 个可达但标题未能抓取**（脚本渲染页面）：playwright.dev、developer.hashicorp.com（上一批）、以及同类情形，均已在卡片内显式注明。
+
+### 本轮**没有**做的事
+
+1. **没有实测任何行为。** 并发与竞态的行为、剖析工具的输出、缓存的命中率、生成模型的输出质量——**全部未在本机复现**。逐条看：竞态卡描述的是"缺失同步会发生什么"，而不是"我构造了一个竞态并复现了它"。
+2. **没有核对任何模型或产品的版本参数。** 卡片刻意不写"某模型多少 token""某工具默认多少步"，这些数字的保质期以周计。
+3. **没有验证多模态与扩散模型的任何定量结论。** 视觉 token 数量、音频的成本量级、扩散的步数与质量关系，都是**定性描述 + 量级直觉**，不是实测曲线。
+4. **「我的理解」一节仍由 AI 起草**（全部 35 张新卡同一情况），因此无一张标 `human-reviewed`。
+
+### 一个必须写下来的规模提醒
+
+本次会话前后共补 **35 张卡**（数据与一致性 8 + 安全 4 + 运维 7 + 并发性能协议 5 + Agent 5 + AI 6）。**这个速度与核查深度是不匹配的**：
+
+| 维度 | 现状 |
+|---|---|
+| 卡片数量 | 77 → **112** |
+| 信源等级 | 111 张 `link-checked`、1 张 `unverified` |
+| `machine-confirmed` | **0 张** |
+| `human-reviewed` | **0 张** |
+
+**`link-checked` 的含义没有变**：只保证"引用没引错东西"。**规模上去了，验证没跟上**——这是当前这个库最大的债务，且它不会因为卡片变多而自动减轻。下一步的正确顺序是**加固验证，而不是继续扩面**。
+
+### 本轮做的边界决策（3 项明确排除）
+
+AI 域原登记的 9 项缺口里，**反向传播与梯度下降 · 损失函数与优化器 · 正则化与过拟合**三项**明确不收**，理由与判断标准已写入[清单](../roadmap.md)的「缺口登记」节：本库的「AI」定义为 LLM 栈，不收通用 ML 基础。**把它们标为"明确不收"而不是"待写"，是为了让"待写"这个数字保持诚实。**
+
+### 附带发现并修正的过期内容
+
+补卡暴露出**文档里写死的数字会过期**这一类问题（composition 文档里的"34 张卡片""五组""六层"等）。本轮的处理：
+
+- 活数字（README / 地图 / 清单）→ 更新为当前值
+- 结构性数字（层数、组数）→ 更新并标注"截至 2026-09-16"
+- 易变细节（各层卡片数）→ **改为不写死**，并在 ai-composition 末尾加了一句"若与文件数不一致，以文件为准"
+
+**这类问题的根源不是疏忽，而是"文档里存了会变的事实"。** 处理原则：**能算出来的就不要写死，必须写的就标注日期。**
+
+---
+
+## 2026-09-16 · 第六批：运维与发布 7 张
+
+**范围**：新写 7 张卡 —— [部署与发布策略](../concepts/software/deployment-strategies.md)、[SLO 与错误预算](../concepts/software/slo-and-error-budget.md)、[告警与值班](../concepts/software/alerting-and-on-call.md)、[配置管理](../concepts/software/configuration-management.md)、[基础设施即代码](../concepts/software/infrastructure-as-code.md)、[事故响应与复盘](../concepts/software/incident-response.md)、[容量规划与成本核算](../concepts/software/capacity-planning.md)。共 9 处来源引用，去重后 7 个 URL。
+
+### 方法
+
+可达性 + 页面标题比对。
+
+### 结果与一个例外
+
+6 个 URL 返回 200 且标题与卡片一致：
+
+| URL | 页面标题 |
+|---|---|
+| martinfowler.com/bliki/BlueGreenDeployment.html | Blue Green Deployment |
+| martinfowler.com/bliki/CanaryRelease.html | Canary Release |
+| openslo.com | OpenSLO |
+| docs.aws.amazon.com/.../reliability-pillar/welcome.html | Reliability Pillar - AWS Well-Architected Framework |
+| prometheus.io/docs/alerting/latest/overview/ | Alerting overview \| Prometheus |
+| 12factor.net/config | The Twelve Factor App |
+| postmortems.pagerduty.com | PagerDuty Postmortem Documentation |
+
+**一个例外**：`developer.hashicorp.com/terraform/intro` 返回 200，但页面由脚本渲染，**抓取不到 `<title>`，无法完成标题比对**。这是本库第一个"可达但标题未核"的来源，处理方式是：
+
+- 该卡的信源等级仍标 `link-checked`，但**在卡片内与「来源对应」下方显式注明这一点**（不靠读者去猜）
+- 卡片内容保持在机制层（声明式、plan/apply、状态管理），不写任何依赖具体版本的行为细节
+
+**这条记录本身比这次核查更重要**：它说明 `link-checked` 不是"全部核过"，而是"核过可达性，标题核对程度因页面形态而异"。等级标签是压缩过的信息，压缩就有损——**遇到边界情况要写出来，而不是让标签替它撒谎。**
+
+### 本轮**没有**做的事
+
+1. **没有实测任何运维行为。** 蓝绿切换的回滚时间、金丝雀放量比例与检出率的关系、SLO 的燃烧率窗口参数、压测的崩溃点——**全部来自来源文档与工程共识，本机未复现任何一项**。运维类卡片的可信度尤其依赖"在自己的系统上验证过"，这一点本库做不到。
+2. **没有绑定任何具体平台或工具的参数。** 卡片刻意不写"某云的金丝雀默认比例"这类内容。
+3. **没有核对 AWS Well-Architected 与 OpenSLO 的版本。** 两者都在演进。
+4. **「我的理解」一节仍由 AI 起草**，未标 `human-reviewed`。
+
+### 进度
+
+第四批登记的 38 项缺口已关闭 19 项（数据与一致性 8 + 安全 4 + 运维与发布 7），剩 19 项：AI 9 · Agent 5 · 软件工程 5。
+
+---
+
+## 2026-09-16 · 第五批：安全 4 张
+
+**范围**：新写 4 张卡 —— [认证与授权](../concepts/software/authentication-and-authorization.md)、[加密与密钥管理](../concepts/software/encryption-and-key-management.md)、[输入校验](../concepts/software/input-validation.md)、[依赖供应链](../concepts/software/dependency-supply-chain.md)。共 9 处来源引用，去重后 7 个 URL。
+
+### 方法
+
+可达性 + 页面标题比对（与上两轮相同）。
+
+### 结果
+
+**7 个 URL 全部 200，标题与卡片声称一致**：
+
+| URL | 页面标题 |
+|---|---|
+| owasp.org/www-project-application-security-verification-standard/ | OWASP Application Security Verification Standard (ASVS) |
+| cheatsheetseries.owasp.org/.../Authentication_Cheat_Sheet.html | Authentication - OWASP Cheat Sheet Series |
+| rfc-editor.org/rfc/rfc6749 | RFC 6749: The OAuth 2.0 Authorization Framework |
+| cheatsheetseries.owasp.org/.../Cryptographic_Storage_Cheat_Sheet.html | Cryptographic Storage - OWASP Cheat Sheet Series |
+| rfc-editor.org/rfc/rfc8446 | RFC 8446: The Transport Layer Security (TLS) Protocol Version 1.3 |
+| cheatsheetseries.owasp.org/.../Input_Validation_Cheat_Sheet.html | Input Validation - OWASP Cheat Sheet Series |
+| cwe.mitre.org/data/definitions/20.html | CWE-20: Improper Input Validation |
+| slsa.dev | SLSA • Supply-chain Levels for Software Artifacts |
+| owasp.org/www-project-dependency-check/ | OWASP Dependency-Check |
+
+### 本轮**没有**做的事
+
+1. **没有做任何安全测试。** 卡片里的漏洞成因（IDOR、授权漏检、CBC 篡改、nonce 重复、绕过变体）**全部来自来源文档，本机未验证任何一条**。安全类卡片尤其要说清这一点：它们描述的是"已知的攻击形态"，不是"已测过的防护效果"。
+2. **没有核对 OWASP 与 CWE 条目的版本。** 这两份都是持续修订的文档，卡片据此写的做法可能在版本演进而变化。
+3. **没有覆盖任何具体框架或库的实现细节。** 卡片刻意停留在机制层，不写"某框架的某个注解"。
+4. **「我的理解」一节仍由 AI 起草**，因此未标 `human-reviewed`。
+
+### 进度
+
+第四批登记的 38 项缺口已关闭 12 项（数据与一致性 8 + 安全 4），剩 26 项：AI 9 · Agent 5 · 软件工程 12（运维与发布 7 · 并发性能与协议 5）。
+
+---
+
 ## 2026-09-16 · 第四批续：数据与一致性（分布式 4 张）
 
 **范围**：新写 4 张卡 —— [复制与一致性模型](../concepts/software/replication-and-consistency.md)、[分片与分区](../concepts/software/sharding-and-partitioning.md)、[schema 迁移与版本化](../concepts/software/schema-migration.md)、[连接池与容量](../concepts/software/connection-pooling.md)。共 9 处来源引用，去重后 6 个 URL。

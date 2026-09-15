@@ -4,7 +4,7 @@
 
 它是 [`maps/agent.md`](../maps/agent.md) 那张依赖图的**文字版**——图回答"谁依赖谁"，本文把那些边讲成因果。
 
-> **定位**：结构地图，不是事实依据。内容整理自 [`concepts/agent/`](../concepts/agent/) 的 19 张卡片，目前信源等级均为 `link-checked`（来源链接已机器核验，正文表述与来源原文尚未逐条比对）。见 [`verification-log.md`](verification-log.md)。
+> **定位**：结构地图，不是事实依据。内容整理自 [`concepts/agent/`](../concepts/agent/) 下的卡片，目前信源等级均为 `link-checked`（来源链接已核验可达性与标题，正文表述与来源原文尚未逐条比对）。见 [`verification-log.md`](verification-log.md)。
 
 ---
 
@@ -22,12 +22,12 @@
 
 | 组 | 它在回答什么 | 不做的后果 | 卡片数 |
 |---|---|---|---|
-| **控制流** | 下一步做什么，由模型运行时决定还是人预先写死 | 用 Agent 去做 Workflow 能做的事，又贵又不可测 | 5 |
-| **工具** | 模型的手能碰到什么、怎么碰到 | 描述没写清楚的能力模型不会用，也不会自己发现 | 5 |
-| **状态与记忆** | 它没有内部状态变量，"我做到哪了"从哪来 | 上下文一被截断或污染就"失忆"、重复动作、目标漂移 | 4 |
-| **质量与安全** | 出问题你怎么知道，以及怎么限制它的破坏半径 | 没有轨迹就无法调试；防御建在概率层等于没有安全 | 5 |
+| **控制流** | 下一步做什么，由模型运行时决定还是人预先写死 | 用 Agent 去做 Workflow 能做的事，又贵又不可测；多个 Agent 时失败会成网络 | 7 |
+| **工具** | 模型的手能碰到什么、怎么碰到 | 描述没写清楚的能力模型不会用，也不会自己发现 | 6 |
+| **状态与记忆** | 它没有内部状态变量，"我做到哪了"从哪来 | 上下文一被截断或污染就"失忆"、重复动作、目标漂移；多方写入则"记乱了" | 5 |
+| **质量与安全** | 出问题你怎么知道，以及怎么限制它的破坏半径 | 没有轨迹就无法调试；防御建在概率层等于没有安全；凭据失控则越权 | 6 |
 
-层级分布：**基础 7 / 进阶 11 / 前沿 1**。
+层级分布（截至 2026-09-16）：**基础 7 / 进阶 13 / 前沿 4**。
 
 ---
 
@@ -92,7 +92,7 @@
 
 ## 走一遍完整链路
 
-一次 Agent 任务从头到尾，这 19 个概念分别在哪儿上场：
+一次 Agent 任务从头到尾，这些概念分别在哪儿上场：
 
 1. **目标进入**：系统提示、任务描述、[工具定义](../concepts/agent/tool-definition.md) 一起放进上下文——工具的**描述质量**从这一刻就开始决定成功率；
 2. **循环启动**：[Agent 循环](../concepts/agent/agent-loop.md) 让模型自己决定下一步；
@@ -120,7 +120,7 @@
 | 顺序 | 卡片 | 为什么排这里 |
 |---|---|---|
 | 1 | [上下文窗口](../concepts/ai/context-window.md)（AI 域） | 唯一的外部前置，必须先有 |
-| 2 | [Agent 循环](../concepts/agent/agent-loop.md) | 其余 18 张卡的共同上游 |
+| 2 | [Agent 循环](../concepts/agent/agent-loop.md) | 其余卡片的共同上游 |
 | 3 | [工具定义](../concepts/agent/tool-definition.md) | Agent 的手，从描述开始 |
 | 4 | [终止条件与预算](../concepts/agent/termination-and-budget.md) | 让循环一定会停 |
 | 5 | [函数调用](../concepts/agent/function-calling.md) | 结构化调用是怎么落地的 |
@@ -131,12 +131,19 @@
 
 ## 本库未覆盖的部分
 
-- **多 Agent 的通信与协调**：[单/多 Agent 取舍](../concepts/agent/single-vs-multi-agent.md)讲的是"要不要拆"，但**消息协议、共享状态、冲突解决、失败传播**没有专门卡片。
-- **Agent 的成本模型**：token 成本、工具调用成本、重试成本如何核算，目前只有[终止条件与预算](../concepts/agent/termination-and-budget.md)沾到边。
-- **凭据与密钥管理**：[权限与最小授权](../concepts/agent/least-privilege.md)管的是权限范围，凭据本身的存放与轮换没有卡片。
-- **GUI / 浏览器操作类工具**：[代码执行沙箱](../concepts/agent/code-execution-sandbox.md)覆盖"生成并执行代码"，但"操作界面"是另一类隔离问题。
+**2026-09-16 更新：本节原先列的四条缺口已全部补齐。**
 
-上面几条缺口**已登记进[清单](../roadmap.md)的「缺口登记（第四批）」（Agent 域 5 项）**。登记之前清单写的是「待写 0」，与本节的缺口矛盾。
+| 原缺口 | 现在在哪 |
+|---|---|
+| 多 Agent 的通信与协调 | [多 Agent 通信与协调](../concepts/agent/multi-agent-coordination.md) · [共享状态与冲突解决](../concepts/agent/shared-state-and-conflict.md) |
+| Agent 的成本模型 | [Agent 成本核算](../concepts/agent/agent-cost-accounting.md) |
+| 凭据与密钥管理 | [Agent 凭据与密钥管理](../concepts/agent/agent-credentials.md) |
+| GUI / 浏览器操作类工具 | [GUI 与浏览器操作工具](../concepts/agent/gui-and-browser-tools.md) |
+
+当前仍缺的是更远的两块，且**本库不打算在 Agent 域重复**：
+
+- **Agent 的部署形态**：多实例下的会话亲和、跨区域调度、灰度发布。这些属于通用后端工程，软件工程域已有对应卡片（[部署与发布策略](../concepts/software/deployment-strategies.md) 等），在 Agent 域再写一遍会造成两份口径。
+- **具体框架与平台**：与"不收 MySQL / Kubernetes"同一条标准——框架属于文档，不属于概念。
 
 ---
 

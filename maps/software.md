@@ -8,29 +8,44 @@
 
 ---
 
-## 五条线
+## 分组结构（原五条线 + 后续新增四组）
 
 ```mermaid
 flowchart TD
     subgraph G_software["软件工程"]
     n_adr["架构决策记录"]
+    n_alerting_and_on_call["告警与值班"]
+    n_api_design_and_rate_limiting["API 风格取舍与限流"]
+    n_authentication_and_authorization["认证与授权"]
     n_backpressure["背压与容量"]
+    n_caching_strategies["缓存策略"]
+    n_capacity_planning["容量规划与成本核算"]
     n_changelog["变更日志"]
     n_circuit_breaker["熔断与降级"]
     n_code_review["代码审查"]
     n_composition_over_inheritance["组合优于继承"]
+    n_concurrency_and_locking["并发与锁"]
+    n_configuration_management["配置管理"]
     n_connection_pooling["连接池与容量"]
     n_contract_design["契约与接口设计"]
     n_contract_testing["契约测试"]
     n_dependency_injection["依赖注入"]
     n_dependency_inversion["依赖倒置原则"]
+    n_dependency_supply_chain["依赖供应链"]
+    n_deployment_strategies["部署与发布策略"]
     n_domain_model["领域模型"]
+    n_encryption_and_key_management["加密与密钥管理"]
     n_idempotency["幂等性"]
+    n_incident_response["事故响应与复盘"]
     n_index_and_query_plan["索引与查询计划"]
+    n_infrastructure_as_code["基础设施即代码"]
+    n_input_validation["输入校验"]
     n_layered_architecture["分层架构与模块边界"]
+    n_memory_model_and_races["竞态与内存模型"]
     n_normalization["范式化与反范式化"]
     n_observability["可观测性"]
     n_ports_and_adapters["端口与适配器"]
+    n_profiling["性能剖析"]
     n_property_based_testing["属性测试"]
     n_replication_and_consistency["复制与一致性模型"]
     n_reproducible_build["可复现构建"]
@@ -38,6 +53,7 @@ flowchart TD
     n_semantic_versioning["语义化版本"]
     n_sharding_and_partitioning["分片与分区"]
     n_single_responsibility["单一职责与职责划分"]
+    n_slo_and_error_budget["SLO 与错误预算"]
     n_technical_debt_refactoring["技术债与重构"]
     n_test_pyramid["测试金字塔"]
     n_timeout_retry_backoff["超时、重试与退避"]
@@ -47,7 +63,10 @@ flowchart TD
     n_version_control_branching["版本控制与分支策略"]
     end
     n_changelog --> n_adr
+    n_slo_and_error_budget --> n_alerting_and_on_call
+    n_contract_design --> n_api_design_and_rate_limiting
     n_timeout_retry_backoff --> n_backpressure
+    n_backpressure --> n_capacity_planning
     n_semantic_versioning --> n_changelog
     n_timeout_retry_backoff --> n_circuit_breaker
     n_version_control_branching --> n_code_review
@@ -57,9 +76,14 @@ flowchart TD
     n_contract_testing --> n_contract_design
     n_test_pyramid --> n_contract_testing
     n_dependency_injection --> n_dependency_inversion
+    n_reproducible_build --> n_dependency_supply_chain
+    n_reproducible_build --> n_deployment_strategies
     n_layered_architecture --> n_domain_model
     n_timeout_retry_backoff --> n_idempotency
+    n_alerting_and_on_call --> n_incident_response
+    n_version_control_branching --> n_infrastructure_as_code
     n_single_responsibility --> n_layered_architecture
+    n_concurrency_and_locking --> n_memory_model_and_races
     n_dependency_inversion --> n_ports_and_adapters
     n_layered_architecture --> n_ports_and_adapters
     n_unit_testing --> n_property_based_testing
@@ -68,6 +92,7 @@ flowchart TD
     n_version_control_branching --> n_schema_migration
     n_version_control_branching --> n_semantic_versioning
     n_replication_and_consistency --> n_sharding_and_partitioning
+    n_observability --> n_slo_and_error_budget
     n_code_review --> n_technical_debt_refactoring
     n_transactions_acid --> n_transaction_isolation
     n_test_pyramid --> n_unit_testing

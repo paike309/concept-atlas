@@ -11,6 +11,8 @@ Agent 的复杂度不在模型，在**循环周边的四件事**。四件事里�
 ```mermaid
 flowchart TD
     subgraph G_agent["Agent / 控制流"]
+    n_agent_cost_accounting["Agent 成本核算"]
+    n_agent_credentials["Agent 凭据与密钥管理"]
     n_agent_evaluation["Agent 评测"]
     n_agent_loop["Agent 循环"]
     n_code_execution_sandbox["代码执行沙箱"]
@@ -18,32 +20,41 @@ flowchart TD
     n_context_compression["上下文压缩与摘要"]
     n_failure_modes["失败模式分类"]
     n_function_calling["函数调用"]
+    n_gui_and_browser_tools["GUI 与浏览器操作工具"]
     n_human_in_the_loop["人在回路"]
     n_least_privilege["权限与最小授权"]
     n_long_term_memory["长期记忆"]
     n_mcp["模型上下文协议"]
+    n_multi_agent_coordination["多 Agent 通信与协调"]
     n_plan_and_execute["计划-执行"]
     n_prompt_injection_defense["提示注入防御"]
     n_react_and_planning["ReAct 与规划范式"]
+    n_shared_state_and_conflict["共享状态与冲突解决"]
     n_single_vs_multi_agent["单 Agent 与多 Agent 的取舍"]
     n_structured_state["结构化状态与外部存储"]
     n_termination_and_budget["终止条件与预算"]
     n_tool_definition["工具定义"]
     n_trajectory_observability["轨迹可观测性与回放"]
     end
+    n_termination_and_budget --> n_agent_cost_accounting
+    n_least_privilege --> n_agent_credentials
     n_trajectory_observability --> n_agent_evaluation
     n_tool_definition --> n_code_execution_sandbox
     n_agent_loop --> n_context_budget
     n_context_budget --> n_context_compression
     n_trajectory_observability --> n_failure_modes
     n_tool_definition --> n_function_calling
+    n_tool_definition --> n_gui_and_browser_tools
+    n_code_execution_sandbox --> n_gui_and_browser_tools
     n_least_privilege --> n_human_in_the_loop
     n_prompt_injection_defense --> n_least_privilege
     n_context_budget --> n_long_term_memory
     n_tool_definition --> n_mcp
+    n_single_vs_multi_agent --> n_multi_agent_coordination
     n_react_and_planning --> n_plan_and_execute
     n_function_calling --> n_prompt_injection_defense
     n_agent_loop --> n_react_and_planning
+    n_structured_state --> n_shared_state_and_conflict
     n_agent_loop --> n_single_vs_multi_agent
     n_context_budget --> n_structured_state
     n_agent_loop --> n_termination_and_budget

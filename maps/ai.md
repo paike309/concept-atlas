@@ -6,7 +6,7 @@ AI 的知识不是平铺的清单，是**五层堆叠**。每层解决上一层�
 
 ---
 
-## 六层结构（L0–L5）
+## 七层结构（L0–L6）
 
 ```mermaid
 flowchart TD
@@ -14,7 +14,10 @@ flowchart TD
     n_alignment["对齐"]
     n_attention_mechanism["注意力机制"]
     n_benchmarks["基准与基准污染"]
+    n_chain_of_thought_and_reasoning["思维链与推理模型"]
     n_context_window["上下文窗口"]
+    n_cross_modal_alignment["跨模态对齐"]
+    n_diffusion_models["扩散模型与图像生成"]
     n_dpo["直接偏好优化"]
     n_embedding["词嵌入"]
     n_evaluation["评估方法论"]
@@ -41,16 +44,22 @@ flowchart TD
     n_sampling["采样策略"]
     n_scaling_laws["缩放定律"]
     n_sft["监督微调"]
+    n_speech_and_audio_models["语音与音频模型"]
+    n_test_time_compute["测试时计算扩展"]
     n_tokenization["分词"]
     n_training_paradigms["训练范式总览"]
     n_transformer["Transformer 架构"]
     n_vector_search["向量检索"]
+    n_vision_encoder["视觉编码器"]
     end
     n_rlhf --> n_alignment
     n_dpo --> n_alignment
     n_evaluation --> n_benchmarks
+    n_instruction_tuning --> n_chain_of_thought_and_reasoning
     n_attention_mechanism --> n_context_window
     n_transformer --> n_context_window
+    n_vision_encoder --> n_cross_modal_alignment
+    n_training_paradigms --> n_diffusion_models
     n_rlhf --> n_dpo
     n_tokenization --> n_embedding
     n_prompt_engineering --> n_evaluation
@@ -80,9 +89,12 @@ flowchart TD
     n_context_window --> n_sampling
     n_pretraining --> n_scaling_laws
     n_pretraining --> n_sft
+    n_transformer --> n_speech_and_audio_models
+    n_chain_of_thought_and_reasoning --> n_test_time_compute
     n_transformer --> n_training_paradigms
     n_attention_mechanism --> n_transformer
     n_embedding --> n_vector_search
+    n_transformer --> n_vision_encoder
 ```
 
 **层与层之间是「问题 → 解法 → 新问题」的关系**，不是分类关系：
@@ -95,6 +107,7 @@ flowchart TD
 | L3 推理 | 权重有了但要跑起来 | 显存、延迟、成本成为硬约束 |
 | L4 工程 | 模型能力如何变成产品能力 | 引入检索、提示、评测等一整套工程复杂度 |
 | L5 评估 | 怎么判断上面所有工作的效果 | 基准会饱和、会被污染，评估本身成为难题 |
+| L6 多模态 | 纯文本之外的真实输入（图像、语音） | 连续信号要离散化；对齐与生成的评估各成一套难题 |
 
 ---
 
@@ -163,6 +176,17 @@ flowchart TD
 | 模型选型与成本权衡 | [模型选型](../concepts/ai/model-selection.md) |
 
 这一层与 [Agent 地图](agent.md) 直接衔接：Agent 的每一步都要用到这里的检索与提示能力。
+
+### L6 多模态 —— 文本之外的输入
+
+| 概念 | 卡片 |
+|---|---|
+| 视觉编码器 | [视觉编码器](../concepts/ai/vision-encoder.md) |
+| 跨模态对齐 | [跨模态对齐](../concepts/ai/cross-modal-alignment.md) |
+| 语音与音频模型 | [语音与音频模型](../concepts/ai/speech-and-audio-models.md) |
+| 扩散模型与图像生成 | [扩散模型与图像生成](../concepts/ai/diffusion-models.md) |
+
+这一层与前面五层的区别：**它的输入不是文本**，因此"离散化"这个问题重新出现（图像切 patch、音频切帧），且**成本结构不同**——视觉 token 数量按面积增长，音频按时长增长。
 
 ### L5 评估与安全 —— 怎么知道行不行
 

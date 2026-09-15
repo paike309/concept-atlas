@@ -14,7 +14,10 @@ flowchart TD
     n_alignment["对齐"]
     n_attention_mechanism["注意力机制"]
     n_benchmarks["基准与基准污染"]
+    n_chain_of_thought_and_reasoning["思维链与推理模型"]
     n_context_window["上下文窗口"]
+    n_cross_modal_alignment["跨模态对齐"]
+    n_diffusion_models["扩散模型与图像生成"]
     n_dpo["直接偏好优化"]
     n_embedding["词嵌入"]
     n_evaluation["评估方法论"]
@@ -41,12 +44,17 @@ flowchart TD
     n_sampling["采样策略"]
     n_scaling_laws["缩放定律"]
     n_sft["监督微调"]
+    n_speech_and_audio_models["语音与音频模型"]
+    n_test_time_compute["测试时计算扩展"]
     n_tokenization["分词"]
     n_training_paradigms["训练范式总览"]
     n_transformer["Transformer 架构"]
     n_vector_search["向量检索"]
+    n_vision_encoder["视觉编码器"]
     end
     subgraph G_agent["Agent / 控制流"]
+    n_agent_cost_accounting["Agent 成本核算"]
+    n_agent_credentials["Agent 凭据与密钥管理"]
     n_agent_evaluation["Agent 评测"]
     n_agent_loop["Agent 循环"]
     n_code_execution_sandbox["代码执行沙箱"]
@@ -54,13 +62,16 @@ flowchart TD
     n_context_compression["上下文压缩与摘要"]
     n_failure_modes["失败模式分类"]
     n_function_calling["函数调用"]
+    n_gui_and_browser_tools["GUI 与浏览器操作工具"]
     n_human_in_the_loop["人在回路"]
     n_least_privilege["权限与最小授权"]
     n_long_term_memory["长期记忆"]
     n_mcp["模型上下文协议"]
+    n_multi_agent_coordination["多 Agent 通信与协调"]
     n_plan_and_execute["计划-执行"]
     n_prompt_injection_defense["提示注入防御"]
     n_react_and_planning["ReAct 与规划范式"]
+    n_shared_state_and_conflict["共享状态与冲突解决"]
     n_single_vs_multi_agent["单 Agent 与多 Agent 的取舍"]
     n_structured_state["结构化状态与外部存储"]
     n_termination_and_budget["终止条件与预算"]
@@ -69,23 +80,38 @@ flowchart TD
     end
     subgraph G_software["软件工程"]
     n_adr["架构决策记录"]
+    n_alerting_and_on_call["告警与值班"]
+    n_api_design_and_rate_limiting["API 风格取舍与限流"]
+    n_authentication_and_authorization["认证与授权"]
     n_backpressure["背压与容量"]
+    n_caching_strategies["缓存策略"]
+    n_capacity_planning["容量规划与成本核算"]
     n_changelog["变更日志"]
     n_circuit_breaker["熔断与降级"]
     n_code_review["代码审查"]
     n_composition_over_inheritance["组合优于继承"]
+    n_concurrency_and_locking["并发与锁"]
+    n_configuration_management["配置管理"]
     n_connection_pooling["连接池与容量"]
     n_contract_design["契约与接口设计"]
     n_contract_testing["契约测试"]
     n_dependency_injection["依赖注入"]
     n_dependency_inversion["依赖倒置原则"]
+    n_dependency_supply_chain["依赖供应链"]
+    n_deployment_strategies["部署与发布策略"]
     n_domain_model["领域模型"]
+    n_encryption_and_key_management["加密与密钥管理"]
     n_idempotency["幂等性"]
+    n_incident_response["事故响应与复盘"]
     n_index_and_query_plan["索引与查询计划"]
+    n_infrastructure_as_code["基础设施即代码"]
+    n_input_validation["输入校验"]
     n_layered_architecture["分层架构与模块边界"]
+    n_memory_model_and_races["竞态与内存模型"]
     n_normalization["范式化与反范式化"]
     n_observability["可观测性"]
     n_ports_and_adapters["端口与适配器"]
+    n_profiling["性能剖析"]
     n_property_based_testing["属性测试"]
     n_replication_and_consistency["复制与一致性模型"]
     n_reproducible_build["可复现构建"]
@@ -93,6 +119,7 @@ flowchart TD
     n_semantic_versioning["语义化版本"]
     n_sharding_and_partitioning["分片与分区"]
     n_single_responsibility["单一职责与职责划分"]
+    n_slo_and_error_budget["SLO 与错误预算"]
     n_technical_debt_refactoring["技术债与重构"]
     n_test_pyramid["测试金字塔"]
     n_timeout_retry_backoff["超时、重试与退避"]
@@ -156,12 +183,12 @@ flowchart TD
 
 | | 数量 |
 |---|---|
-| 已写卡片 | 85 |
-| 清单待写 | 30（第四批：组成视角下的缺口登记） |
+| 已写卡片 | 112 |
+| 清单待写 | 0（第四批 38 项已全部处理：35 项成卡 + 3 项明确排除） |
 | 前置链断点（P0） | 12 个，已补齐 |
 | 主干概念（P1） | 26 个，已补齐 |
 | 补充与延伸（P2） | 34 个，已补齐 |
-| 信源等级 | 76 张 `link-checked`，1 张 `unverified` |
+| 信源等级 | 111 张 `link-checked`，1 张 `unverified` |
 
 概念已铺齐，来源链接也已逐条机器核验（35 个 arXiv 编号零错配）。但**正文表述与来源原文尚未逐条比对**，数量级数字也未实测——所以现在的正确用法仍是当作索引与提问清单，不是当作事实依据。核查记录见 [`docs/verification-log.md`](../docs/verification-log.md)；第 2 轮逐卡核查清单见 [`docs/round2-verification-checklist.md`](../docs/round2-verification-checklist.md)。
 
