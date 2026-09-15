@@ -111,6 +111,43 @@ def check_card(path: Path) -> None:
     if prereq is not None and not prereq.strip():
         err("「前置」为空——没有前置也要写「无」")
 
+    # ⑧ 数值断言软告警：link-checked / unverified 的卡若正文出现数量级数字，
+    #    提醒"数字需有来源或改为定性描述"。这是告警，不是错误，不阻断合并。
+    # 注意：字段值是「`link-checked` 若干说明文字」，必须先按反引号取第一段，
+    # 否则拿到的是 "link-checked`" —— 与集合比较永远不成立，告警会静默失效。
+    verified_code = verified.strip("`").split("`")[0].split()[0] if verified else ""
+    if verified_code in ("unverified", "link-checked"):
+        if re.search(r"\d[\d.,]*\s*(倍|%|参数|GB|MB|KB|ms|毫秒|秒|层|维|token|Token|样本|亿|万)", text):
+            warnings.append(
+                "%s: 含数量级数字断言，信源等级为 %s —— 建议核对来源或改为定性描述"
+                % (rel, verified_code)
+            )
+
+
+def check_maps() -> None:
+    """调用 build_maps.py --check 作为地图漂移闸门。"""
+    import os
+    import subprocess
+    # 子进程输出含中文，必须显式统一为 UTF-8：否则 Windows 上父进程会用本地
+    # 代码页（如 cp936）解码子进程的 UTF-8 输出，直接 UnicodeDecodeError。
+    env = dict(os.environ)
+    env["PYTHONIOENCODING"] = "utf-8"
+    try:
+        proc = subprocess.run(
+            [sys.executable, str(ROOT / "scripts" / "build_maps.py"), "--check"],
+            capture_output=True, text=True, encoding="utf-8", errors="replace",
+            env=env,
+        )
+    except FileNotFoundError:
+        warnings.append("未找到 scripts/build_maps.py，跳过地图一致性检查")
+        return
+    out = (proc.stdout + proc.stderr).strip()
+    if out:
+        for line in out.splitlines():
+            print("  [map] " + line)
+    if proc.returncode != 0:
+        errors.append("地图与卡片不一致：请重跑 python scripts/build_maps.py")
+
 
 def check_links() -> None:
     for md in sorted(ROOT.rglob("*.md")):
@@ -138,6 +175,7 @@ def main() -> int:
     for card in cards:
         check_card(card)
     check_links()
+    check_maps()
 
     print("检查卡片 %d 张" % len(cards))
     for w in warnings:
