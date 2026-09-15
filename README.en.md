@@ -94,6 +94,13 @@ The correct way to use this repository right now is therefore still as an **inde
 
 ---
 
+## License and round 2
+
+- Knowledge content (the prose under `concepts/`, `maps/`, and `docs/`) is licensed **CC BY-SA 4.0** — see [LICENSE](LICENSE). Code and build scripts (`scripts/`) are **MIT** — see [LICENSE-CODE](LICENSE-CODE).
+- Round 1 only machine-checked the source links (`link-checked`). The round-2 checklist and its discipline are in [docs/round2-verification-checklist.md](docs/round2-verification-checklist.md); per-card conclusions accumulate in [docs/verification-log.md](docs/verification-log.md).
+
+---
+
 ## Provenance of the structure itself
 
 - [Open Knowledge Format v0.2](https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/okf/SPEC.md) — bundle/concept definitions, and the provenance and trust fields
