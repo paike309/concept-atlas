@@ -12,7 +12,7 @@
 
 ---
 
-## AI（已写 34 · 待写 9）
+## AI（已写 40 · 待写 0）
 
 ### L0 输入层
 
@@ -49,6 +49,8 @@
 - [x] [采样策略（温度 / Top-p）](concepts/ai/sampling.md)
 - [x] [量化 Quantization](concepts/ai/quantization.md)
 - [x] [推理引擎与服务化](concepts/ai/inference-engines.md)
+- [x] [思维链与推理模型](concepts/ai/chain-of-thought-and-reasoning.md)
+- [x] [测试时计算扩展](concepts/ai/test-time-compute.md)
 
 ### L4 工程层
 
@@ -66,9 +68,16 @@
 - [x] [越狱与红队测试](concepts/ai/jailbreak.md)（提示注入见 Agent 侧的[提示注入防御](concepts/agent/prompt-injection-defense.md)）
 - [x] [基准与基准污染](concepts/ai/benchmarks.md)
 
+### L6 多模态
+
+- [x] [视觉编码器](concepts/ai/vision-encoder.md)
+- [x] [跨模态对齐](concepts/ai/cross-modal-alignment.md)
+- [x] [语音与音频模型](concepts/ai/speech-and-audio-models.md)
+- [x] [扩散模型与图像生成](concepts/ai/diffusion-models.md)
+
 ---
 
-## Agent（已写 19 · 待写 5）
+## Agent（已写 24 · 待写 0）
 
 ### 控制流
 
@@ -77,6 +86,8 @@
 - [x] [ReAct 与规划范式](concepts/agent/react-and-planning.md)
 - [x] [Plan-and-Execute](concepts/agent/plan-and-execute.md)
 - [x] [单 Agent vs 多 Agent 的取舍](concepts/agent/single-vs-multi-agent.md)
+- [x] [多 Agent 通信与协调](concepts/agent/multi-agent-coordination.md)
+- [x] [Agent 成本核算](concepts/agent/agent-cost-accounting.md)
 
 ### 工具
 
@@ -85,6 +96,7 @@
 - [x] [函数调用 Function Calling](concepts/agent/function-calling.md)
 - [x] [代码执行沙箱](concepts/agent/code-execution-sandbox.md)
 - [x] [权限与最小授权](concepts/agent/least-privilege.md)
+- [x] [GUI 与浏览器操作工具](concepts/agent/gui-and-browser-tools.md)
 
 ### 状态与记忆
 
@@ -92,6 +104,7 @@
 - [x] [上下文压缩与摘要](concepts/agent/context-compression.md)
 - [x] [长期记忆](concepts/agent/long-term-memory.md)
 - [x] [结构化状态与外部存储](concepts/agent/structured-state.md)
+- [x] [共享状态与冲突解决](concepts/agent/shared-state-and-conflict.md)
 
 ### 质量与安全
 
@@ -100,10 +113,11 @@
 - [x] [提示注入防御](concepts/agent/prompt-injection-defense.md)
 - [x] [人在回路确认点 HITL](concepts/agent/human-in-the-loop.md)
 - [x] [Agent 评测](concepts/agent/agent-evaluation.md)
+- [x] [Agent 凭据与密钥管理](concepts/agent/agent-credentials.md)
 
 ---
 
-## 软件工程（已写 32 · 待写 16）
+## 软件工程（已写 48 · 待写 0）
 
 ### 设计原则
 
@@ -157,6 +171,31 @@
 
 > 这一组是第四批登记后**新开的一条线**（此前本库没有任何数据库卡片）。原分组只有五个是"当时就有的"，新增分组不改变旧编号。
 
+### 安全
+
+- [x] [认证与授权](concepts/software/authentication-and-authorization.md)
+- [x] [加密与密钥管理](concepts/software/encryption-and-key-management.md)
+- [x] [输入校验](concepts/software/input-validation.md)
+- [x] [依赖供应链](concepts/software/dependency-supply-chain.md)
+
+### 运维与发布
+
+- [x] [部署与发布策略](concepts/software/deployment-strategies.md)
+- [x] [SLO 与错误预算](concepts/software/slo-and-error-budget.md)
+- [x] [告警与值班](concepts/software/alerting-and-on-call.md)
+- [x] [配置管理](concepts/software/configuration-management.md)
+- [x] [基础设施即代码](concepts/software/infrastructure-as-code.md)
+- [x] [事故响应与复盘](concepts/software/incident-response.md)
+- [x] [容量规划与成本核算](concepts/software/capacity-planning.md)
+
+### 并发、性能与协议
+
+- [x] [并发与锁](concepts/software/concurrency-and-locking.md)
+- [x] [竞态与内存模型](concepts/software/memory-model-and-races.md)
+- [x] [性能剖析 Profiling](concepts/software/profiling.md)
+- [x] [缓存策略](concepts/software/caching-strategies.md)
+- [x] [API 风格取舍与限流](concepts/software/api-design-and-rate-limiting.md)
+
 ---
 
 ## 当前状态
@@ -166,81 +205,47 @@
 | 第一批 | 12 个 P0 前置链断点 | 已完成 |
 | 第二批 | 26 个 P1 主干概念 | 已完成 |
 | 第三批 | 34 个 P2 补充与延伸 | 已完成 |
-| 第四批 | 组成视角下的缺口登记（38 项） | 进行中（已写 8） |
+| 第四批 | 组成视角下的缺口登记（38 项） | **已完成**（35 成卡 + 3 明确排除） |
 
-**前三批完成的是原清单上的条目；第四批是把组成视角铺开后暴露的缺口正式登记进来。**
+**前三批完成的是原清单上的条目；第四批是把组成视角铺开后暴露的缺口正式登记进来，并已全部处理完毕。**
 
 这个库的主张是"承认自己缺什么"。组成视角一铺开，三类空区就露出来了：**数据与一致性、安全与运维、跨模态与推理时计算**。把它们留在正文里说"这是缺口"、却在清单上写"待写 0"，等于让清单失真——**勾选框和正文必须说同一件事。**
 
-信源等级方面：**77 张卡片中 76 张为 `link-checked`、1 张为 `unverified`**（该卡的来源被出版社反爬阻断，无法机器核验）。`link-checked` 只保证"引用没引错东西"，不保证"引用的东西支持这句话"。
+信源等级方面：**112 张卡片中 111 张为 `link-checked`、1 张为 `unverified`**（该卡的来源被出版社反爬阻断，无法机器核验）。`link-checked` 只保证"引用没引错东西"，不保证"引用的东西支持这句话"——**本次批量补的 35 张全部只到 `link-checked`，正文表述未逐条核对**。
 
 **P0 与 P1 全部补齐后，从「分词」到「Agent 可上线」已存在一条完整可读的链路**；软件工程侧也已覆盖设计、结构与边界、正确性、变更、运行五条线。P2 补齐了细化与延伸。
 
 ---
 
-## 缺口登记（第四批）
+## 缺口登记（第四批）——已全部处理
 
-以下条目**不是新想法，而是已有文档里已经指出、此前没有落到清单上的缺口**：
+这 38 项**不是新想法，而是已有文档里已经指出、此前没有落到清单上的缺口**：
 
 - 领域缺口：[AI 组成总览](docs/ai-composition.md) · [Agent 组成总览](docs/agent-composition.md) · [软件工程组成总览](docs/software-composition.md)
 - 组成视角下的缺口（系统由哪几块构成、哪几块是空的）：[系统组成总览](docs/system-anatomy.md)
 
-勾选方式与前面一致：写出一张卡，就把 `[ ]` 改成 `[x]` 并补上链接。
+**2026-09-16 收口：38 项已全部处理完毕——35 项写成卡片，3 项经判断明确排除。**
 
-### AI（9）
+| 领域 | 条目 | 结果 |
+|---|---|---|
+| AI | 9 | 6 项成卡 · 3 项明确排除 |
+| Agent | 5 | 全部成卡 |
+| 软件工程 | 24 | 全部成卡 |
+| **合计** | **38** | **35 成卡 + 3 排除** |
 
-- [ ] 反向传播与梯度下降
-- [ ] 损失函数与优化器
-- [ ] 正则化与过拟合
-- [ ] 思维链与推理模型
-- [ ] 测试时计算扩展
-- [ ] 视觉编码器
-- [ ] 跨模态对齐
-- [ ] 语音与音频模型
-- [ ] 扩散模型与图像生成
+成卡的条目已移入上方主清单：AI 的 6 张在 L3 推理层与 L6 多模态，Agent 的 5 张分散在控制流 / 工具 / 状态与记忆 / 质量与安全四个分组，软件工程的 24 张在「数据与一致性」「安全」「运维与发布」「并发、性能与协议」四个新分组。
 
-**为什么它们算缺口**：本库的「AI」定义为 LLM 栈（见 [AI 组成总览](docs/ai-composition.md) 开头），所以通用 ML 基础被有意排除在选材之外——但**推理时计算**（思维链、推理模型、测试时扩展）与**多模态**是这条链路上绕不开的，不收就成了结构性空洞。通用 ML 基础是否收录，取决于是否要把本库的边界从"LLM 栈"扩到"机器学习"，这一条需要先定方向再动笔。
+### 明确排除的 3 项（AI · 通用机器学习基础）
 
-### Agent（5）
+- 反向传播与梯度下降
+- 损失函数与优化器
+- 正则化与过拟合
 
-- [ ] 多 Agent 通信与协调
-- [ ] 共享状态与冲突解决
-- [ ] Agent 成本核算
-- [ ] 凭据与密钥管理
-- [ ] GUI 与浏览器操作工具
+**为什么不收**：本库的「AI」定义为 **LLM 栈**，不是机器学习（见 [AI 组成总览](docs/ai-composition.md) 开头）。这三项属于通用 ML 基础——它们当然重要，但收录它们意味着把本库的边界从"LLM 应用与工程"扩到"机器学习基础"，那是另一个库的选材。
 
-**为什么它们算缺口**：[单 Agent vs 多 Agent](concepts/agent/single-vs-multi-agent.md) 回答的是"要不要拆"，但拆开之后的**消息协议、共享状态、冲突解决、失败传播**没有卡片；成本与凭据同理，都只被现有卡片"沾到边"。
+**"明确不写"与"以后再写"要分开。** 后者会在清单上永远挂着一个不会被执行的任务，让"待写"这个数字失去意义；前者让边界清楚。这条判断与"不收 MySQL / Kubernetes / Spring"是同一条标准（见[软件工程组成总览](docs/software-composition.md)）。
 
-### 软件工程（剩 16）
-
-> 「数据与一致性」这一组（8 张）已全部写完，见主清单的同名分组——这是第四批登记后**第一组被关掉的缺口**。
-
-**安全（4）**：
-
-- [ ] 认证与授权
-- [ ] 加密与密钥管理
-- [ ] 输入校验
-- [ ] 依赖供应链
-
-**运维与发布（7）**：
-
-- [ ] 部署与发布策略（灰度 / 金丝雀 / 蓝绿 / 回滚）
-- [ ] SLO 与错误预算
-- [ ] 告警与值班
-- [ ] 配置管理
-- [ ] 基础设施即代码
-- [ ] 事故响应与复盘
-- [ ] 容量规划与成本核算
-
-**并发、性能与协议（5）**：
-
-- [ ] 并发与锁
-- [ ] 竞态与内存模型
-- [ ] 性能剖析 Profiling
-- [ ] 缓存策略
-- [ ] API 风格取舍与限流
-
-**判断标准没有变**：上面这些都是"换一个语言或框架之后仍然成立"的概念，按本库自己的收录原则**应当收录**；不该收录的仍是 MySQL / Kubernetes / Spring 这类具体产品。
+**如果将来要改这条边界**：先改 AI 组成总览里的定位声明，再登记条目——**顺序不能反**，否则清单又会与正文冲突（这正是第四批登记要解决的问题）。
 
 ---
 

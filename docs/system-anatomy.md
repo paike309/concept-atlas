@@ -72,16 +72,18 @@ flowchart TD
 
 | 部分 | 起什么作用 | 不做会怎样 | 对应卡片 | 缺口 |
 |---|---|---|---|---|
-| **1 入口与契约** | 把外部请求转成内部调用，并承诺"调用方可以依赖什么" | 调用方靠猜，猜错就是生产事故 | [契约与接口设计](../concepts/software/contract-design.md) · [契约测试](../concepts/software/contract-testing.md) · [语义化版本](../concepts/software/semantic-versioning.md) | 协议风格取舍（REST / gRPC） |
+| **1 入口与契约** | 把外部请求转成内部调用，并承诺"调用方可以依赖什么、可以用多快" | 调用方靠猜，猜错就是生产事故 | [契约与接口设计](../concepts/software/contract-design.md) · [契约测试](../concepts/software/contract-testing.md) · [语义化版本](../concepts/software/semantic-versioning.md) · [API 风格取舍与限流](../concepts/software/api-design-and-rate-limiting.md) · [认证与授权](../concepts/software/authentication-and-authorization.md) | 无 |
 | **2 应用编排** | 决定"做哪些步骤、按什么顺序做、失败到哪一步算完" | 流程控制散落在各层，同一用例在不同入口行为不一致 | [分层架构](../concepts/software/layered-architecture.md) · [依赖注入](../concepts/software/dependency-injection.md) | 工作流与状态机（长流程） |
 | **3 领域逻辑** | 承载业务规则，让规则有归属 | 规则散进服务方法，改一条规则要全库搜索 | [领域模型](../concepts/software/domain-model.md) · [单一职责](../concepts/software/single-responsibility.md) | 无（本库覆盖最完整的一块） |
 | **4 状态与持久化** | 决定什么必须一次成功、什么可以最终一致 | 并发行为与失败恢复无法推理 | [事务与 ACID](../concepts/software/transactions-acid.md) · [隔离级别与并发异常](../concepts/software/transaction-isolation.md) · [索引与查询计划](../concepts/software/index-and-query-plan.md) · [范式化与反范式化](../concepts/software/normalization.md) · [复制与一致性模型](../concepts/software/replication-and-consistency.md) · [分片与分区](../concepts/software/sharding-and-partitioning.md) · [schema 迁移与版本化](../concepts/software/schema-migration.md) · [连接池与容量](../concepts/software/connection-pooling.md) | 无（8 张卡已齐，是本库目前覆盖最完整的一条线） |
-| **5 外部集成** | 与不受你控制的系统打交道，并承担对方会失败这件事 | 一个依赖变慢拖垮整个系统 | [超时、重试与退避](../concepts/software/timeout-retry-backoff.md) · [熔断与降级](../concepts/software/circuit-breaker.md) · [背压与容量](../concepts/software/backpressure.md) · [幂等性](../concepts/software/idempotency.md) | 出站流量的配额与限流 |
-| **6 横切能力** | 让前五块的行为从外部可推断、可约束 | 系统能跑，但"慢了""错了""被越权了"都定位不了 | [可观测性](../concepts/software/observability.md) · [轨迹可观测性与回放](../concepts/agent/trajectory-observability.md)（Agent 域） · [权限与最小授权](../concepts/agent/least-privilege.md)（Agent 域） | **大部分缺失**：认证与授权、加密、配置与密钥管理、输入校验 |
-| **7 运行支撑** | 让系统在真实负载与真实故障下持续可用 | 上线只是开始，之后每次故障都靠人硬扛 | [可观测性](../concepts/software/observability.md) · [背压与容量](../concepts/software/backpressure.md) | **大部分缺失**：部署与发布策略、SLO、告警与值班、事故复盘、容量规划 |
-| **8 交付管线** | 让"改动能安全进主线、出问题能回到上一版" | 不敢改、不敢发，或发了之后不知道该回到哪一版 | [版本控制与分支策略](../concepts/software/version-control-branching.md) · [代码审查](../concepts/software/code-review.md) · [测试金字塔](../concepts/software/test-pyramid.md) · [可复现构建](../concepts/software/reproducible-build.md) · [变更日志](../concepts/software/changelog.md) · [架构决策记录 ADR](../concepts/software/adr.md) | CI/CD 本身、制品仓库、灰度与回滚 |
+| **5 外部集成** | 与不受你控制的系统打交道，并承担对方会失败这件事 | 一个依赖变慢拖垮整个系统 | [超时、重试与退避](../concepts/software/timeout-retry-backoff.md) · [熔断与降级](../concepts/software/circuit-breaker.md) · [背压与容量](../concepts/software/backpressure.md) · [幂等性](../concepts/software/idempotency.md) · [缓存策略](../concepts/software/caching-strategies.md) | 出站流量的配额（入站限流已有卡） |
+| **6 横切能力** | 让前五块的行为从外部可推断、可约束 | 系统能跑，但"慢了""错了""被越权了"都定位不了 | [可观测性](../concepts/software/observability.md) · [认证与授权](../concepts/software/authentication-and-authorization.md) · [输入校验](../concepts/software/input-validation.md) · [加密与密钥管理](../concepts/software/encryption-and-key-management.md) · [轨迹可观测性与回放](../concepts/agent/trajectory-observability.md)（Agent 域） | 配置与密钥管理 |
+| **7 运行支撑** | 让系统在真实负载与真实故障下持续可用 | 上线只是开始，之后每次故障都靠人硬扛 | [部署与发布策略](../concepts/software/deployment-strategies.md) · [SLO 与错误预算](../concepts/software/slo-and-error-budget.md) · [告警与值班](../concepts/software/alerting-and-on-call.md) · [配置管理](../concepts/software/configuration-management.md) · [基础设施即代码](../concepts/software/infrastructure-as-code.md) · [事故响应与复盘](../concepts/software/incident-response.md) · [容量规划与成本核算](../concepts/software/capacity-planning.md) · [可观测性](../concepts/software/observability.md) · [背压与容量](../concepts/software/backpressure.md) | 无（9 张卡已齐） |
+| **8 交付管线** | 让"改动能安全进主线、出问题能回到上一版" | 不敢改、不敢发，或发了之后不知道该回到哪一版 | [版本控制与分支策略](../concepts/software/version-control-branching.md) · [代码审查](../concepts/software/code-review.md) · [测试金字塔](../concepts/software/test-pyramid.md) · [可复现构建](../concepts/software/reproducible-build.md) · [变更日志](../concepts/software/changelog.md) · [架构决策记录 ADR](../concepts/software/adr.md) · [依赖供应链](../concepts/software/dependency-supply-chain.md) | CI/CD 本身、制品仓库、灰度与回滚 |
 
-**一张表读下来的结论**：本库在 **2、3、5、8** 四块覆盖较好，**4 已补齐**（8 张卡），**6、7** 两块基本是空的。而 6、7 恰好是"demo 能跑、上线出事"的集中区。
+**一张表读下来的结论**：**八个部分现在都有卡片可查**，其中 3、4、6、7、8 五块已补齐，1、2、5 三块覆盖良好（第 2 部分仍差"长流程的工作流与状态机"）。**八块里没有一块是空区了**——这是本库第一次可以说这句话。
+
+但必须说清这意味着什么：**补齐的是"有卡片可查"，不是"这些卡已经可信"**。112 张卡片的信源等级仍是 `link-checked`（引用没引错，正文未逐条核对），且其中 35 张是同一轮批量补写的——**规模上去了，验证没跟上**。这是当前最大的债务，见[核查记录](verification-log.md)与[第 2 轮核查清单](round2-verification-checklist.md)。
 
 ---
 
@@ -160,11 +162,30 @@ Agent 域的[结构化状态与外部存储](../concepts/agent/structured-state.
 
 一条常被忽略的结论：**可观测性不是运维的事**。它要求代码层面主动埋点并传递关联标识——否则三类信号是三个孤岛（见[可观测性](../concepts/software/observability.md)）。
 
+**安全与可观测性同属横切，但方向相反**：可观测性让行为**可见**，安全让行为**受限**。这一块的三张安全卡各管一层，且不可互替：
+
+| 卡 | 它挡什么 | 它挡不住什么 |
+|---|---|---|
+| [认证与授权](../concepts/software/authentication-and-authorization.md) | 未授权的主体与动作 | 合法主体提交的恶意数据 |
+| [输入校验](../concepts/software/input-validation.md) | 跨边界的每一份数据 | 有权限的人做有权限的事 |
+| [加密与密钥管理](../concepts/software/encryption-and-key-management.md) | 数据被拿到后的明文泄露 | 运行中的应用自己解密（应用被攻破时） |
+
+**校验挡不住越权，授权挡不住注入，加密挡不住应用被攻破**——这三句是这一块的边界。
+
 ### 7 运行支撑 —— 上线只是开始
 
-这一块在本库里被拆在两处且都只是部分覆盖：可靠性那一半在「运行」组（可观测性、超时重试、熔断、背压、幂等性），发布与变更那一半在「变更管理」组加[可复现构建](../concepts/software/reproducible-build.md)。
+这一块由三部分构成，各自回答不同的问题：
 
-缺的是上线动作本身：部署与发布策略（灰度 / 金丝雀 / 蓝绿 / 回滚）、SLO 与错误预算、告警阈值与值班、事故响应与复盘、容量规划。
+| 卡 | 它回答什么 |
+|---|---|
+| [部署与发布策略](../concepts/software/deployment-strategies.md) | 新版本怎么切流量、怎么退回去 |
+| [SLO 与错误预算](../concepts/software/slo-and-error-budget.md) | "够好"由谁定义、什么时候该冻结变更 |
+| [告警与值班](../concepts/software/alerting-and-on-call.md) | 什么情况值得半夜叫人 |
+| [事故响应与复盘](../concepts/software/incident-response.md) | 出事时先做什么、事后怎么改进 |
+| [容量规划与成本核算](../concepts/software/capacity-planning.md) | 还能撑多少、再加一份要多少钱 |
+| [配置管理](../concepts/software/configuration-management.md) · [基础设施即代码](../concepts/software/infrastructure-as-code.md) | 环境与资源的定义怎么受控 |
+
+这一块的共同性质：**它们全都在"系统已经写完之后"才开始发挥作用**，所以最容易被推迟——而推迟的代价在第一次真实故障时一次性付出。
 
 ### 8 交付管线 —— 让改动可进、可退
 
@@ -213,6 +234,9 @@ Agent 域的[结构化状态与外部存储](../concepts/agent/structured-state.
 | 分片键 / 复制策略 | 并发语义 · 失败恢复 · 重试策略 | 链五：跨节点后隔离级别不再覆盖 |
 | schema 结构变更 | 旧代码 · 回滚能力 · 回填耗时 | 数据不能回滚，破坏性变更必须跨多次发布 |
 | 池大小 / 实例数 | 数据库连接上限 · 获取连接等待时间 | 实例数 × 池上限会随扩容同步变大 |
+| 发布方式 / 放量比例 | 新旧版本兼容性 · 回滚路径 · 指标可按版本切分 | 滚动与金丝雀期间，两个版本**同时在线**是默认状态 |
+| 配置变更 | 所属层级（影响面）· 回滚方式 · 与故障时间线的关联 | 热更新绕过了重启这道自然闸门，变更与故障更难关联 |
+| SLO 目标 | 错误预算 · 发布准入 · 容量余量 | 目标调严等于预算变少，会直接冻结变更 |
 | 超时值 | 重试次数 · 熔断阈值 · 背压 · 幂等性 | 链三：五者配套 |
 | 重试策略 | 幂等性 · 下游容量 | 不幂等的重试 = 重复副作用 |
 | 日志或指标维度 | 存储成本 · 定位能力 | 高基数维度进指标会撑爆存储 |
@@ -244,12 +268,12 @@ Agent 域的[结构化状态与外部存储](../concepts/agent/structured-state.
 按上表，第 4 部分（状态与持久化）已补齐；缺的是第 6、7 两部分（不依赖具体产品，按本库自己的收录标准应当收录）：
 
 - **数据与一致性**：**已全部补齐（8/8）** —— [事务与 ACID](../concepts/software/transactions-acid.md) · [隔离级别与并发异常](../concepts/software/transaction-isolation.md) · [索引与查询计划](../concepts/software/index-and-query-plan.md) · [范式化与反范式化](../concepts/software/normalization.md) · [复制与一致性模型](../concepts/software/replication-and-consistency.md) · [分片与分区](../concepts/software/sharding-and-partitioning.md) · [schema 迁移与版本化](../concepts/software/schema-migration.md) · [连接池与容量](../concepts/software/connection-pooling.md)
-- **安全**：认证 · 授权 · 加密 · 输入校验 · 依赖供应链
-- **运维**：部署与发布策略（灰度 / 金丝雀 / 蓝绿 / 回滚）· SLO 与错误预算 · 告警与值班 · 配置与密钥管理 · 基础设施即代码 · 事故响应与复盘 · 容量规划
-- **并发**：锁 · 竞态 · 内存模型 · Actor 模型
-- **性能**：profiling · 缓存策略 · 批处理 · 延迟预算
-- **网络与协议**：REST / gRPC 取舍 · 限流 · 幂等键
-- **构建与依赖**：[可复现构建](../concepts/software/reproducible-build.md)只覆盖了产物一致性，锁定策略与依赖图未覆盖
+- **安全**：**已全部补齐（4/4）** —— [认证与授权](../concepts/software/authentication-and-authorization.md) · [加密与密钥管理](../concepts/software/encryption-and-key-management.md) · [输入校验](../concepts/software/input-validation.md) · [依赖供应链](../concepts/software/dependency-supply-chain.md)（配置与密钥管理的密钥侧已覆盖，配置侧仍缺）
+- **运维**：**已全部补齐（7/7）** —— [部署与发布策略](../concepts/software/deployment-strategies.md) · [SLO 与错误预算](../concepts/software/slo-and-error-budget.md) · [告警与值班](../concepts/software/alerting-and-on-call.md) · [配置管理](../concepts/software/configuration-management.md) · [基础设施即代码](../concepts/software/infrastructure-as-code.md) · [事故响应与复盘](../concepts/software/incident-response.md) · [容量规划与成本核算](../concepts/software/capacity-planning.md)
+- **并发**：已补 [并发与锁](../concepts/software/concurrency-and-locking.md) · [竞态与内存模型](../concepts/software/memory-model-and-races.md)；**更高层的并发范式（Actor 模型、CSP）仍未覆盖**
+- **性能**：已补 [性能剖析](../concepts/software/profiling.md) · [缓存策略](../concepts/software/caching-strategies.md)；**批处理与延迟预算未专门覆盖**
+- **网络与协议**：已补 [API 风格取舍与限流](../concepts/software/api-design-and-rate-limiting.md)；**协议层（HTTP/2、HTTP/3、服务网格）未覆盖**
+- **构建与依赖**：已补 [依赖供应链](../concepts/software/dependency-supply-chain.md)；锁定策略与依赖图未专门成卡
 
 这份缺口清单已登记在[清单](../roadmap.md)的「缺口登记（第四批）」；本文只负责指出它们**与系统的哪一块相关**。两处说的必须是同一件事——清单写"待写 0"而正文列着缺口，是这个库最不该出现的一种失真。
 

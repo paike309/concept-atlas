@@ -164,6 +164,68 @@
 | 双写与回填 | Dual Write & Backfill | | [已写](../concepts/software/schema-migration.md) |
 | 连接池 | Connection Pool | | [已写](../concepts/software/connection-pooling.md) |
 | 连接耗尽 | Connection Exhaustion | | [已写](../concepts/software/connection-pooling.md) |
+| 认证 | Authentication | | [已写](../concepts/software/authentication-and-authorization.md) |
+| 授权 | Authorization | | [已写](../concepts/software/authentication-and-authorization.md) |
+| 多因素认证 | Multi-Factor Authentication | MFA | [已写](../concepts/software/authentication-and-authorization.md) |
+| 会话固定 | Session Fixation | | [已写](../concepts/software/authentication-and-authorization.md) |
+| 访问控制 | Access Control | | [已写](../concepts/software/authentication-and-authorization.md) |
+| 认证加密 | Authenticated Encryption with Associated Data | AEAD | [已写](../concepts/software/encryption-and-key-management.md) |
+| 密钥轮换 | Key Rotation | | [已写](../concepts/software/encryption-and-key-management.md) |
+| 信封加密 | Envelope Encryption | | [已写](../concepts/software/encryption-and-key-management.md) |
+| 信任边界 | Trust Boundary | | [已写](../concepts/software/input-validation.md) |
+| 参数化查询 | Parameterized Query | | [已写](../concepts/software/input-validation.md) |
+| 输出编码 | Output Encoding | | [已写](../concepts/software/input-validation.md) |
+| 供应链安全 | Supply Chain Security | | [已写](../concepts/software/dependency-supply-chain.md) |
+| 软件物料清单 | Software Bill of Materials | SBOM | [已写](../concepts/software/dependency-supply-chain.md) |
+| 部署 | Deployment | | [已写](../concepts/software/deployment-strategies.md) |
+| 发布 | Release | | [已写](../concepts/software/deployment-strategies.md) |
+| 蓝绿部署 | Blue-Green Deployment | | [已写](../concepts/software/deployment-strategies.md) |
+| 金丝雀发布 | Canary Release | | [已写](../concepts/software/deployment-strategies.md) |
+| 功能开关 | Feature Flag | | [已写](../concepts/software/deployment-strategies.md) |
+| 服务等级指标 | Service Level Indicator | SLI | [已写](../concepts/software/slo-and-error-budget.md) |
+| 服务等级目标 | Service Level Objective | SLO | [已写](../concepts/software/slo-and-error-budget.md) |
+| 服务等级协议 | Service Level Agreement | SLA | [已写](../concepts/software/slo-and-error-budget.md) |
+| 错误预算 | Error Budget | | [已写](../concepts/software/slo-and-error-budget.md) |
+| 燃烧率 | Burn Rate | | [已写](../concepts/software/slo-and-error-budget.md) |
+| 分页告警 | Paging | | [已写](../concepts/software/alerting-and-on-call.md) |
+| 告警疲劳 | Alert Fatigue | | [已写](../concepts/software/alerting-and-on-call.md) |
+| 配置漂移 | Configuration Drift | | [已写](../concepts/software/configuration-management.md) |
+| 基础设施即代码 | Infrastructure as Code | IaC | [已写](../concepts/software/infrastructure-as-code.md) |
+| 声明式 | Declarative | | [已写](../concepts/software/infrastructure-as-code.md) |
+| 事故指挥 | Incident Commander | IC | [已写](../concepts/software/incident-response.md) |
+| 无责复盘 | Blameless Postmortem | | [已写](../concepts/software/incident-response.md) |
+| 容量规划 | Capacity Planning | | [已写](../concepts/software/capacity-planning.md) |
+| 并发控制 | Concurrency Control | | [已写](../concepts/software/concurrency-and-locking.md) |
+| 死锁 | Deadlock | | [已写](../concepts/software/concurrency-and-locking.md) |
+| 乐观锁 / 悲观锁 | Optimistic / Pessimistic Locking | | [已写](../concepts/software/concurrency-and-locking.md) |
+| 数据竞争 | Data Race | | [已写](../concepts/software/memory-model-and-races.md) |
+| 内存模型 | Memory Model | | [已写](../concepts/software/memory-model-and-races.md) |
+| happens-before | Happens-Before | | [已写](../concepts/software/memory-model-and-races.md) |
+| 火焰图 | Flame Graph | | [已写](../concepts/software/profiling.md) |
+| 采样剖析 | Sampling Profiler | | [已写](../concepts/software/profiling.md) |
+| 缓存穿透 / 击穿 / 雪崩 | Cache Penetration / Breakdown / Stampede | | [已写](../concepts/software/caching-strategies.md) |
+| 旁路缓存 | Cache-Aside | | [已写](../concepts/software/caching-strategies.md) |
+| 限流 | Rate Limiting | | [已写](../concepts/software/api-design-and-rate-limiting.md) |
+| 令牌桶 | Token Bucket | | [已写](../concepts/software/api-design-and-rate-limiting.md) |
+| 配额 | Quota | | [已写](../concepts/software/api-design-and-rate-limiting.md) |
+| 视觉编码器 | Vision Encoder | | [已写](../concepts/ai/vision-encoder.md) |
+| 图像块 | Patch | | [已写](../concepts/ai/vision-encoder.md) |
+| 跨模态对齐 | Cross-Modal Alignment | | [已写](../concepts/ai/cross-modal-alignment.md) |
+| 对比学习 | Contrastive Learning | | [已写](../concepts/ai/cross-modal-alignment.md) |
+| 零样本分类 | Zero-Shot Classification | | [已写](../concepts/ai/cross-modal-alignment.md) |
+| 语音识别 | Automatic Speech Recognition | ASR | [已写](../concepts/ai/speech-and-audio-models.md) |
+| 频谱图 | Spectrogram | | [已写](../concepts/ai/speech-and-audio-models.md) |
+| 扩散模型 | Diffusion Model | | [已写](../concepts/ai/diffusion-models.md) |
+| 潜空间扩散 | Latent Diffusion | | [已写](../concepts/ai/diffusion-models.md) |
+| 思维链 | Chain-of-Thought | CoT | [已写](../concepts/ai/chain-of-thought-and-reasoning.md) |
+| 推理模型 | Reasoning Model | | [已写](../concepts/ai/chain-of-thought-and-reasoning.md) |
+| 测试时计算 | Test-Time Compute | | [已写](../concepts/ai/test-time-compute.md) |
+| 自洽性 | Self-Consistency | | [已写](../concepts/ai/test-time-compute.md) |
+| 多 Agent 协调 | Multi-Agent Coordination | | [已写](../concepts/agent/multi-agent-coordination.md) |
+| 共享状态 | Shared State | | [已写](../concepts/agent/shared-state-and-conflict.md) |
+| 单位任务成本 | Cost per Task | | [已写](../concepts/agent/agent-cost-accounting.md) |
+| 短期凭据 | Short-Lived Credential | | [已写](../concepts/agent/agent-credentials.md) |
+| 浏览器自动化 | Browser Automation | | [已写](../concepts/agent/gui-and-browser-tools.md) |
 
 ---
 
